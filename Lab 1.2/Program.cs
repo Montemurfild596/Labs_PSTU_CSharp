@@ -7,13 +7,9 @@ namespace Lab_1._2
 	{
 		static void Main(string[] args)
 		{
-			//Console.WriteLine("Hello World!");
 			// треугольник равнобедренный: точки - 0:5; 10:0; 0:-5
 			// эллипс: центр - 5:0; a = 5, b = 5 => неправильный рисунок, фигура - круг: (x - 5)^2 + y^2 = 25
 			Figure2f.Point2f[] trianglePoints = new Figure2f.Point2f[3] /*{ {0, 5}, {10, 0}, {0, -5} }*/;
-			//trianglePoints[0].x = 0; trianglePoints[0].y = 5;
-			//trianglePoints[1].x = 10; trianglePoints[1].y = 0;
-			//trianglePoints[2].x = 0; trianglePoints[2].y = -5;
 			trianglePoints[0] = new Figure2f.Point2f(0, 5);
 			trianglePoints[1] = new Figure2f.Point2f(10, 0);
 			trianglePoints[2] = new Figure2f.Point2f(0, -5);
