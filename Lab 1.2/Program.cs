@@ -17,22 +17,14 @@ namespace Lab_1._2
 			Figure2f.Point2f center = new(5, 0);
 			Figure2f.Point2f targetPoint = new(Input.TypeFloat("Введите координату x: "), Input.TypeFloat("Введите координату y: "));
 			bool result_1 = Figure2f.Triangle.PointBelongingToTriangle(trianglePoints[0], trianglePoints[1], trianglePoints[2], targetPoint);
-			if (result_1)
-			{
-				Console.WriteLine("Точка принадлежит треугольнику");
-			}
-			else
-			{
-				Console.WriteLine("Точка не принадлежит треугольнику");
-			}
 			bool result_2 = Figure2f.Circle.PointBelongingToCircle(center, radius, targetPoint);
-			if (result_2)
-			{
-				Console.WriteLine("Точка принадлежит кругу");
-			}
+			if (result_1 || result_2)
+            {
+				Console.WriteLine("Точка принадлежит закрашенной фигуре");
+            } 
 			else
-			{
-				Console.WriteLine("Точка не принадлежит кругу");
+            {
+				Console.WriteLine("Точка не принадлежит закрашенной фигуре");
 			}
 		}
 	}
