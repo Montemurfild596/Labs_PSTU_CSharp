@@ -1,0 +1,11 @@
+C:\Projects\CSahrp\CSharp\MyClassLibrary\bin\Debug\net5.0\MyClassLibrary.deps.json
+C:\Projects\CSahrp\CSharp\MyClassLibrary\bin\Debug\net5.0\MyClassLibrary.dll
+C:\Projects\CSahrp\CSharp\MyClassLibrary\bin\Debug\net5.0\ref\MyClassLibrary.dll
+C:\Projects\CSahrp\CSharp\MyClassLibrary\bin\Debug\net5.0\MyClassLibrary.pdb
+C:\Projects\CSahrp\CSharp\MyClassLibrary\obj\Debug\net5.0\MyClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\CSahrp\CSharp\MyClassLibrary\obj\Debug\net5.0\MyClassLibrary.AssemblyInfoInputs.cache
+C:\Projects\CSahrp\CSharp\MyClassLibrary\obj\Debug\net5.0\MyClassLibrary.AssemblyInfo.cs
+C:\Projects\CSahrp\CSharp\MyClassLibrary\obj\Debug\net5.0\MyClassLibrary.csproj.CoreCompileInputs.cache
+C:\Projects\CSahrp\CSharp\MyClassLibrary\obj\Debug\net5.0\MyClassLibrary.dll
+C:\Projects\CSahrp\CSharp\MyClassLibrary\obj\Debug\net5.0\ref\MyClassLibrary.dll
+C:\Projects\CSahrp\CSharp\MyClassLibrary\obj\Debug\net5.0\MyClassLibrary.pdb
