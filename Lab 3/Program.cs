@@ -10,7 +10,6 @@ namespace Lab_3
 			int k = 10;
 			for (double x = diapazonBegin; x <= diapazonEnd; x += (diapazonEnd - diapazonBegin) / k)
 			{
-				//Console.WriteLine("X = " + x + " ");
 				double summaSteps = 0, summaAccuracy = 0;
 				int nSteps = 40;
 				double divisibleSteps = (-1) * Math.Pow((1 + x), 2), dividerSteps = 1;
@@ -40,7 +39,6 @@ namespace Lab_3
 						isFirstSummaTerm = false;
                     }
 					summaAccuracy += summaTerm;
-					//Console.WriteLine(summaAccuracy);
                 }
 				double y = Math.Log(1 / (2 + 2 * x + Math.Pow(x, 2)));
 				Console.WriteLine("X = " + x + " SN = " + summaSteps + " SE = " + summaAccuracy + " Y = " + y);
