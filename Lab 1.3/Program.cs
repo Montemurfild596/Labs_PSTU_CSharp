@@ -37,18 +37,6 @@ namespace Lab_1._3
             Console.WriteLine("b^3                      : " + G_cube_b_f + " | " + G_cube_b_d);
             Console.WriteLine("-3a^2b - b^3             : " + H_F_dif_G_f + " | " + H_F_dif_G_d);
             Console.WriteLine("Result                   : " + result_f +" | " + result_d);
-
-
-
-
-
-
-            Console.WriteLine(result_f);
-            Console.WriteLine(result_d);
-            float result_1 = (MathF.Pow(a_1 - b_1, 3) - (MathF.Pow(a_1, 3) + 3 * MathF.Pow(b_1, 2) * a_1)) / (-1 * (3 * MathF.Pow(a_1, 2) * b_1) - MathF.Pow(b_1, 3));
-            double result_2 = (Math.Pow(a_2 - b_2, 3) - (Math.Pow(a_2, 3) + 3 * Math.Pow(b_2, 2) * a_2)) / (-1 * (3 * Math.Pow(a_2, 2) * b_2) - Math.Pow(b_2, 3));
-            Console.WriteLine(result_1);
-            Console.WriteLine(result_2);
         }
     }
 }
