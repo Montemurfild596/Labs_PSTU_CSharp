@@ -108,14 +108,8 @@ namespace MyClassLibrary
 				float result1 = (first.x - targetPoint.x) * (second.y - first.y) - (second.x - first.x) * (first.y - targetPoint.y);
 				float result2 = (second.x - targetPoint.x) * (third.y - second.y) - (third.x - second.x) * (second.y - targetPoint.y);
 				float result3 = (third.x - targetPoint.x) * (first.y - third.y) - (first.x - third.x) * (third.y - targetPoint.y);
-				if ((result1 >= 0 && result2 >= 0 && result3 >= 0) || (result1 <= 0 && result2 <= 0 && result3 <= 0))
-				{
-					return true;
-				}
-				else
-				{
-					return false;
-				}
+				bool isPositive = result1 >= 0 && result2 >= 0 && result3 >= 0, isNegative = result1 <= 0 && result2 <= 0 && result3 <= 0;
+				return isPositive || isNegative;
 			}
 		}
 		public class Circle
@@ -123,14 +117,8 @@ namespace MyClassLibrary
 			public static bool PointBelongingToCircle(Point2f center, float radius, Point2f targetPoint)
 			{
 				float result = MathF.Pow((targetPoint.x - center.x), 2) + MathF.Pow((targetPoint.y - center.y), 2) - MathF.Pow(radius, 2);
-				if (result <= 0)
-				{
-					return true;
-				}
-				else
-				{
-					return false;
-				}
+				bool isResult = (result <= 0);
+				return isResult;
 			}
 
 		}
