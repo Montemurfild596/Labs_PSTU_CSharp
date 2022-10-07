@@ -4,8 +4,7 @@ using System;
 namespace Lab_1._2
 {
 	class Program
-	{
-
+	{1
 		static void Main(string[] args)
 		{
 			// треугольник равнобедренный: точки - 0:5; 10:0; 0:-5

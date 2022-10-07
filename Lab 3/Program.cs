@@ -12,25 +12,25 @@ namespace Lab_3
 			{
 				double summaSteps = 0, summaAccuracy = 0;
 				int nSteps = 40;
-				double divisibleSteps = (-1) * Math.Pow((1 + x), 2), dividerSteps = 1;
+				double divisibleSteps = (-1) * (1 + x) * (1 + x), dividerSteps = 1;
 				for (int i = 1; i <= nSteps; ++i)
 				{
 					if (i != 1)
                     {
-						divisibleSteps *= (-1) * Math.Pow((1 + x), 2);
+						divisibleSteps *= ((-1) * (1 + x) * (1 + x));
 						dividerSteps += 1;
                     }
 					summaSteps += (divisibleSteps / dividerSteps);
 				}
 				double accuracy = 0.0001;
-				double divisibleAccuracy = (-1) * Math.Pow((1 + x), 2), dividerAccuracy = 1;
+				double divisibleAccuracy = (-1) * (1 + x) * (1 + x), dividerAccuracy = 1;
 				double summaTerm = divisibleAccuracy / dividerAccuracy;
 				bool isFirstSummaTerm = true;
 				while (Math.Abs(summaTerm) >= accuracy)
                 {
 					if (!isFirstSummaTerm)
                     {
-						divisibleAccuracy *= (-1) * Math.Pow((1 + x), 2);
+						divisibleAccuracy *= ((-1) * (1 + x) * (1 + x));
 						dividerAccuracy += 1;
 						summaTerm = divisibleAccuracy / dividerAccuracy;
                     } 
@@ -41,7 +41,7 @@ namespace Lab_3
 					summaAccuracy += summaTerm;
                 }
 				double y = Math.Log(1 / (2 + 2 * x + Math.Pow(x, 2)));
-				Console.WriteLine("X = " + x + " SN = " + summaSteps + " SE = " + summaAccuracy + " Y = " + y);
+				Console.WriteLine("X = " + Math.Round(x, 2) + " SN = " + Math.Round(summaSteps, 10) + " SE = " + Math.Round(summaAccuracy, 10) + " Y = " + Math.Round(y ,10));
 			}
 		}
 	}
