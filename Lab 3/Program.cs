@@ -11,6 +11,8 @@ namespace Lab_3
 			for (double x = diapazonBegin; x <= diapazonEnd; x += (diapazonEnd - diapazonBegin) / k)
 			{
 				double summaSteps = 0, summaAccuracy = 0;
+				
+				// для n шагов
 				int nSteps = 40;
 				double divisibleSteps = (-1) * (1 + x) * (1 + x), dividerSteps = 1;
 				for (int i = 1; i <= nSteps; ++i)
@@ -22,6 +24,8 @@ namespace Lab_3
                     }
 					summaSteps += (divisibleSteps / dividerSteps);
 				}
+
+				// для заданной точности
 				double accuracy = 0.0001;
 				double divisibleAccuracy = (-1) * (1 + x) * (1 + x), dividerAccuracy = 1;
 				double summaTerm = divisibleAccuracy / dividerAccuracy;
@@ -41,7 +45,7 @@ namespace Lab_3
 					summaAccuracy += summaTerm;
                 }
 				double y = Math.Log(1 / (2 + 2 * x + Math.Pow(x, 2)));
-				Console.WriteLine("X = " + Math.Round(x, 2) + " SN = " + Math.Round(summaSteps, 10) + " SE = " + Math.Round(summaAccuracy, 10) + " Y = " + Math.Round(y ,10));
+				Console.WriteLine("X = " + Math.Round(x, 2) + " SN = " + Math.Round(summaSteps, 5) + " SE = " + Math.Round(summaAccuracy, 5) + " Y = " + Math.Round(y, 5));
 			}
 		}
 	}
