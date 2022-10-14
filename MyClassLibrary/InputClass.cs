@@ -8,34 +8,39 @@ namespace MyClassLibrary
 		{
 			string buf;
 			int n;
-			bool isCorrect = false;
+			bool isCorrectInput = false;
 			do
 			{
 				Console.Write(message);
 				buf = Console.ReadLine();
-				isCorrect = Int32.TryParse(buf, out n);
-				if (!isCorrect)
+				isCorrectInput = Int32.TryParse(buf, out n);
+				if (!isCorrectInput)
 				{
 					Console.WriteLine("Ошибка: введённое значение не соответствует типу integer");
 				}
-			} while (!isCorrect);
+			} while (!isCorrectInput);
 			return n;
 		}
 		public static double TypeDouble(string message)
 		{
 			string buf;
 			double result;
-			bool isCorrect = false;
+			bool isCorrectInput = false, isCorrectFormula = false;
 			do
 			{
 				Console.Write(message);
 				buf = Console.ReadLine();
-				isCorrect = Double.TryParse(buf, out result);
-				if (!isCorrect)
+				isCorrectInput = Double.TryParse(buf, out result);
+				if (!isCorrectInput)
 				{
 					Console.WriteLine("Ошибка: введённое значение не соответствует типу double");
 				}
-			} while (!isCorrect);
+				else if (result > 2 || result < 0)
+                {
+					Console.WriteLine("Значение выражение от данного аргумента не может быть вычислено");
+                }
+				isCorrectFormula = result > 0 || result < -3;
+			} while (!isCorrectInput || isCorrectFormula);
 			return result;
 		}
 		public static float TypeFloat(string message)
@@ -52,7 +57,6 @@ namespace MyClassLibrary
 				if (!isCorrect)
 				{
 					Console.WriteLine("Ошибка: введЁнное значение не соответствует типу float");
-
 				}
 			} while (!isCorrect);
 			return result;
