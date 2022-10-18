@@ -5,6 +5,7 @@ namespace Lab_5
 {
 	class Program
 	{
+
 		static void InputRandomBoundaries(out int a, out int b)
         {
 			string buf;
@@ -46,62 +47,89 @@ namespace Lab_5
 			} while (isNotAllRight);
 		}
 		// функция заполнения одномерного массива случайными числами
-		static void RandomFillingArray(int []arr)
+		static void RandomFillingArray(int [] mas)
         {
 			int lower, upper;
-
-			for (int i = 0; i < arr.Length; ++i)
+			InputRandomBoundaries(out lower, out upper);
+			Random rnd = new Random();
+			for (int i = 0; i < mas.Length; ++i)
             {
-
+				mas[i] = rnd.Next(lower, upper + 1);
             }
         }
 		// функция заполнения двумерного массива случайными числами
-		static void RandomFillingArray(int [,]arr)
+		static void RandomFillingArray(int [,] mas)
         {
-
+			int lower, upper;
+			InputRandomBoundaries(out lower, out upper);
+			Random rnd = new Random();
+			int rows = mas.GetUpperBound(0) + 1, cols = mas.Length / rows;
+			for (int i = 0; i < rows; ++i)
+            {
+				for (int j = 0; j < cols; ++j)
+                {
+					mas[i, j] = rnd.Next(lower, upper + 1);
+                }
+            }
         }
 		// функция заполнения рваного массива случайными числами
-		static void RandomFillingArray(int[][] arr)
+		static void RandomFillingArray(int[][] mas)
 		{
 
 		}
 		// функция заполнения одномерного массива значениями пользователя
-		static void userFillingArray(int []arr)
+		static void UserFillingArray(int [] mas)
         {
-
+			for (int i = 0; i < mas.Length; ++i)
+            {
+				mas[i] = Input.TypeInteger($"Введите значение {i + 1} элемента: ");
+            }
         }
 		// функция заполнения двумерного массива значениями пользователя
-		static void userFillingArray(int [,]arr)
+		static void UserFillingArray(int [,] mas)
         {
 
         }
 		// функция заполнения рваного массива значениями пользователя
-		static void userFillingArray(int[][] arr)
+		static void UserFillingArray(int[][] mas)
 		{
 
 		}
-		static void Main(string[] args)
-		{
-			Random rnd = new Random();
-			int strings, columns;
-			strings = Input.TypeInteger("Введите количество строк двумерного массива: ");
-			columns = Input.TypeInteger("Введите количество столбцов двумерного массива: ");
-			int[,] randomArray = new int[strings, columns];
-			for (uint i = 0; i < strings; ++i)
+		static void PrintArray(int [] mas)
+        {
+			for (int i = 0; i < mas.Length; ++i)
             {
-				for (uint j = 0; j < columns; ++j)
-                {
-					randomArray[i, j] = rnd.Next(0, 10);
-                }
+				Console.Write(mas[i] + " ");
             }
-			for (uint i = 0; i < strings; ++i)
+			Console.WriteLine();
+        }
+		static void PrintArray(int [,] mas)
+        {
+			int rows = mas.GetUpperBound(0) + 1, cols = mas.Length / rows;
+			Console.WriteLine(mas.GetUpperBound(0));
+			for (int i = 0; i < rows; ++i)
             {
-				for (uint j = 0; j < columns; ++j)
+				for (int j = 0; j < cols; ++j)
                 {
-					Console.Write(randomArray[i, j] + " ");
+					Console.Write(mas[i, j] + " ");
                 }
 				Console.WriteLine();
             }
+			Console.WriteLine();
+		}
+		static void PrintArray(int [][] mas)
+        {
+
+        }
+		static void Main(string[] args)
+		{
+			int[] mas1 = new int[4];
+			PrintArray(mas1);
+			UserFillingArray(mas1);
+			PrintArray(mas1);
+			int[,] mas2 = new int[4, 5];
+			PrintArray(mas2);
+
 		}
 	}
 }
