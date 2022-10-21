@@ -7,20 +7,45 @@ namespace MyClassLibrary
 		public static int TypeInteger(string message)
 		{
 			string buf;
-			int n;
+			int result;
 			bool isCorrectInput = false;
 			do
 			{
 				Console.Write(message);
 				buf = Console.ReadLine();
-				isCorrectInput = Int32.TryParse(buf, out n);
+				isCorrectInput = Int32.TryParse(buf, out result);
 				if (!isCorrectInput)
 				{
 					Console.WriteLine("Ошибка: введённое значение не соответствует типу integer");
 				}
 			} while (!isCorrectInput);
-			return n;
+			return result;
 		}
+		public static int TypePositiveInteger(string message)
+        {
+			string buf;
+			int result;
+			bool isCorrectInput = false, isPositive = true;
+			do
+			{
+				Console.Write(message);
+				buf = Console.ReadLine();
+				isCorrectInput = Int32.TryParse(buf, out result);
+				if (!isCorrectInput)
+				{
+					Console.WriteLine("Ошибка: введённое значение не соответствует типу integer");
+				}
+				else
+				{
+					isPositive = result > 0;
+					if (!isPositive)
+					{
+						Console.WriteLine("Ошибка: введённое значение не положительное");
+					}
+				}
+			} while (!isCorrectInput || !isPositive);
+			return result;
+        }
 		public static double TypeDouble(string message)
 		{
 			string buf;
