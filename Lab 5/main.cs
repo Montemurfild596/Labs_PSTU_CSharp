@@ -258,19 +258,21 @@ namespace Lab_5
 		}
 
 		//нахождение значения максимального элемента рваного массива
-		static int FindMaxValue(int[][] mas)
+		static void FindMaxValue(int[][] mas)
 		{
 			int max = MIN, rows = mas.GetUpperBound(0) + 1;
-			for (int i = 0; i < rows; ++i)
+			if (mas.Length != 0)
 			{
-				foreach (int temp in mas[i])
+				for (int i = 0; i < rows; ++i)
 				{
-					max = max < temp
-						? temp
-						: max;
+					foreach (int temp in mas[i])
+					{
+						max = max < temp
+							? temp
+							: max;
+					}
 				}
 			}
-			return max;
 		}
 
 		// нахождение значения максимального элемента рваного массива и его индексов
@@ -434,32 +436,46 @@ namespace Lab_5
 		}
 
 		// добавление строки после строки с максимальным элементом
-		static int[,] AddRowAfterMax(int [,] mas)
+		static void AddRowAfterMax(int[,] mas)
 		{
 			Console.WriteLine("Добавление строки в двумерный массив");
-			int rows = mas.GetUpperBound(0) + 1, cols = mas.Length / rows, max = MIN;
-			int newRows = rows + 1, indexI, indexJ;
-			FindIndexMaxValue(mas, out max, out indexI, out indexJ);
-			int[,] newMas = new int[newRows, cols];
-			int isIndexMaxRow = 0;
-			for (int i = 0; i < newRows; ++i)
-			{
-				for (int j = 0; j < cols; ++j)
+			if (mas.Length != 0) {
+				int rows = mas.GetUpperBound(0) + 1, cols = mas.Length / rows, max = MIN;
+				int newRows = rows + 1, indexI, indexJ;
+				FindIndexMaxValue(mas, out max, out indexI, out indexJ);
+				int[,] newMas = new int[newRows, cols];
+				int isIndexMaxRow = 0;
+				for (int i = 0; i < newRows; ++i)
 				{
-					if (i == indexI + 1)
+					for (int j = 0; j < cols; ++j)
 					{
-						newMas[i, j] = Input.TypeInteger($"Введите элемент {i + 1} строки {j + 1} столбца: ");
+						if (i == indexI + 1)
+						{
+							newMas[i, j] = Input.TypeInteger($"Введите элемент {i + 1} строки {j + 1} столбца: ");
+						}
+						else
+						{
+							newMas[i, j] = mas[i - isIndexMaxRow, j];
+						}
 					}
-					else
+					isIndexMaxRow = i >= indexI
+						? 1
+						: 0;
+				}
+				mas = new int[newRows, cols];
+				for (int i = 0; i < newRows; ++i)
+				{
+					for (int j = 0; j < cols; ++j)
 					{
-						newMas[i, j] = mas[i - isIndexMaxRow, j];
+						mas[i, j] = newMas[i, j];
 					}
 				}
-				isIndexMaxRow = i >= indexI
-					? 1
-					: 0;
 			}
-			return newMas;
+			else
+            {
+				Print($"Добавление строки невозможно, так как массив пустой");
+            }
+			
 		}
 
 		static int[][] AddRowAfterFirstRow(int [][] mas)
@@ -471,7 +487,6 @@ namespace Lab_5
             {
 				newMas[i] = new int[mas[i - 1].Length];
             }
-			PrintMas(newMas);
 			for (int i = 0; i < newMas[0].Length; ++i)
             {
 				newMas[0][i] = Input.TypeInteger($"Введите {i + 1} элемент новой строки: ");
@@ -587,7 +602,8 @@ namespace Lab_5
                 {
                     case 1:
 						int userChoiseOneDemisionMas;
-                        do
+						int oneDemisionMasMaxValue;
+						do
                         {
                             Print("1. Создание одномерного массива и его заполнение\n" +
                                   "2. Вывод одномерного массива\n" +
@@ -596,7 +612,6 @@ namespace Lab_5
                                   "5. Поиск максимального элемента\n" +
                                   "0. Назад");
                             userChoiseOneDemisionMas = Input.TypeInteger("Выберите одну из предложенных функций: ");
-							int maxValue;
 							switch (userChoiseOneDemisionMas)
                             {
                                 case 1:
@@ -627,12 +642,12 @@ namespace Lab_5
                                     break;
                                 case 4:
 									Print("Поиск максимального элемента");
-									FindMaxValue(oneDemisionMas, out maxValue);
+									FindMaxValue(oneDemisionMas, out oneDemisionMasMaxValue);
 									break;
                                 case 5:
 									Print("Поиск индекса максимального элемента");
 									int index;
-									FindIndexMaxValue(oneDemisionMas, out maxValue, out index);
+									FindIndexMaxValue(oneDemisionMas, out oneDemisionMasMaxValue, out index);
 									break;
                                 case 0:
                                     break;
@@ -644,6 +659,7 @@ namespace Lab_5
                         break;
                     case 2:
 						int userChoiseTwoDemisionMas;
+						int twoDemisionMasMaxValue;
 						do
 						{
 							Print("1. Создание двумерного массива и его заполнение\n" +
@@ -653,7 +669,6 @@ namespace Lab_5
 								  "5. Поиск максимального элемента\n" +
 								  "0. Назад");
 							userChoiseTwoDemisionMas = Input.TypeInteger("Выберите одну из предложенных функций: ");
-							int maxValue;
 							switch (userChoiseTwoDemisionMas)
 							{
 								case 1:
@@ -684,12 +699,12 @@ namespace Lab_5
 									break;
 								case 4:
 									Print("Поиск максимального элемента");
-									FindMaxValue(twoDemisionMas, out maxValue);
+									FindMaxValue(twoDemisionMas, out twoDemisionMasMaxValue);
 									break;
 								case 5:
 									Print("Поиск индекса максимального элемента");
 									int row, col;
-									FindIndexMaxValue(twoDemisionMas, out maxValue, out row, out col);
+									FindIndexMaxValue(twoDemisionMas, out twoDemisionMasMaxValue, out row, out col);
 									break;
 								case 0:
 									break;
@@ -704,7 +719,7 @@ namespace Lab_5
                     case 0:
                         break;
                     default:
-                        Console.WriteLine("Ты чё, ебанутый? Ты что там делаешь? Такой команды нет");
+                        Print("Неизвестная функция");
                         break;
                 }
             } while (userChoise != 0);
