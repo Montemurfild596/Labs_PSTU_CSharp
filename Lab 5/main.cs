@@ -8,34 +8,33 @@ namespace Lab_5
 		static int MIN = int.MinValue;
 		static int MAX = int.MaxValue;
 
+		// функция ввода границ диапазона
 		static void InputBoundaries(out int a, out int b, string message)
 		{
 			string buf;
-
-			// переменные для проверки границ универсума (верхняя больше нижней, обе положительные и целочисленные)
 			bool isCorrectLeftBoundary, isCorrectRightBoundary, isUpperMoreThanLower = false, isNotAllRight;
 			do
 			{
 				Console.WriteLine(message);
-				Console.Write("Введите нижнюю границу универсума: ");
+				Console.Write("Введите нижнюю границу: ");
 				buf = Console.ReadLine();
 				isCorrectLeftBoundary = Int32.TryParse(buf, out a);
-				Console.Write("Введите верхнюю границу универсума: ");
+				Console.Write("Введите верхнюю границу: ");
 				buf = Console.ReadLine();
 				isCorrectRightBoundary = Int32.TryParse(buf, out b);
 				if (!isCorrectRightBoundary || !isCorrectLeftBoundary)
 				{
 					if (!isCorrectRightBoundary && !isCorrectLeftBoundary)
 					{
-						Console.WriteLine("Ошибка: значения нижней и верхней границ универсума не соответствует типу integer");
+						Console.WriteLine("Ошибка: значения нижней и верхней границ не соответствуют типу integer");
 					}
 					else if (!isCorrectRightBoundary)
 					{
-						Console.WriteLine("Ошибка: значение верхней границы универсума не соответствует типу integer");
+						Console.WriteLine("Ошибка: значение верхней границы не соответствует типу integer");
 					}
 					else
 					{
-						Console.WriteLine("Ошибка: значение нижней границы универсума не соответствует типу integer");
+						Console.WriteLine("Ошибка: значение нижней границы не соответствует типу integer");
 					}
 				}
 				else
@@ -43,7 +42,7 @@ namespace Lab_5
 					isUpperMoreThanLower = b >= a;
 					if (!isUpperMoreThanLower)
 					{
-						Console.WriteLine("Ошибка: значение нижней границы универсума больше верхней границы");
+						Console.WriteLine("Ошибка: значение нижней границы больше верхней границы");
 					}
 				}
 				isNotAllRight = !isCorrectRightBoundary || !isCorrectLeftBoundary || !isUpperMoreThanLower;
@@ -62,6 +61,9 @@ namespace Lab_5
 			int lower, upper;
 			InputBoundaries(out lower, out upper, "\tВвод границ отрезка случайных чисел");
 			Random rnd = new Random();
+			int masLength;
+			masLength = Input.TypePositiveInteger("Введите положительное значение размера массива: ");
+			mas = new int[masLength];
 			for (int i = 0; i < mas.Length; ++i)
 			{
 				mas[i] = rnd.Next(lower, upper + 1);
@@ -74,10 +76,13 @@ namespace Lab_5
 			int lower, upper;
 			InputBoundaries(out lower, out upper, "\tВвод границ отрезка случайных чисел");
 			Random rnd = new Random();
-			int rows = mas.GetUpperBound(0) + 1, cols = mas.Length / rows;
-			for (int i = 0; i < rows; ++i)
+			int newCountRows, newCountCols;
+			newCountRows = Input.TypePositiveInteger("Введите количество строк: ");
+			newCountCols = Input.TypePositiveInteger("Введите количество столбцов: ");
+			mas = new int[newCountRows, newCountCols];
+			for (int i = 0; i < newCountRows; ++i)
 			{
-				for (int j = 0; j < cols; ++j)
+				for (int j = 0; j < newCountCols; ++j)
 				{
 					mas[i, j] = rnd.Next(lower, upper + 1);
 				}
@@ -90,6 +95,14 @@ namespace Lab_5
 			int lower, upper;
 			InputBoundaries(out lower, out upper, "\tВвод границ отрезка случайных чисел");
 			Random rnd = new Random();
+			int newCountRows, newCountElems;
+			newCountRows = Input.TypePositiveInteger("Введите количество строк массива: ");
+			mas = new int[newCountRows][];
+			for (int i = 0; i < newCountRows; ++i)
+            {
+				newCountElems = Input.TypePositiveInteger($"Введите количество элементов в {i + 1} строке: ");
+				mas[i] = new int[newCountElems];
+            }
 			for (int i = 0; i < mas.GetUpperBound(0) + 1; ++i)
 			{
 				for (int j = 0; j < mas[i].Length; ++j)
@@ -102,6 +115,9 @@ namespace Lab_5
 		// функция заполнения одномерного массива значениями пользователя
 		static void UserFillingArray(int [] mas)
 		{
+			int masLength;
+			masLength = Input.TypePositiveInteger("Введите положительное значение размера массива: ");
+			mas = new int[masLength];
 			for (int i = 0; i < mas.Length; ++i)
 			{
 				mas[i] = Input.TypeInteger($"Введите значение {i + 1} элемента: ");
@@ -111,10 +127,13 @@ namespace Lab_5
 		// функция заполнения двумерного массива значениями пользователя
 		static void UserFillingArray(int [,] mas)
 		{
-			int rows = mas.GetUpperBound(0) + 1, cols = mas.Length / rows;
-			for (int i = 0; i < rows; ++i)
+			int newCountRows, newCountCols;
+			newCountRows = Input.TypePositiveInteger("Введите количество строк: ");
+			newCountCols = Input.TypePositiveInteger("Введите количество столбцов: ");
+			mas = new int[newCountRows, newCountCols];
+			for (int i = 0; i < newCountRows; ++i)
 			{
-				for (int j = 0; j < cols; ++j)
+				for (int j = 0; j < newCountCols; ++j)
 				{
 					mas[i, j] = Input.TypeInteger($"Введите значение элемента с индексами [{i + 1}, {j + 1}] : ");
 				}
@@ -124,6 +143,14 @@ namespace Lab_5
 		// функция заполнения рваного массива значениями пользователя
 		static void UserFillingArray(int[][] mas)
 		{
+			int newCountRows, newCountElems;
+			newCountRows = Input.TypePositiveInteger("Введите количество строк массива: ");
+			mas = new int[newCountRows][];
+			for (int i = 0; i < newCountRows; ++i)
+			{
+				newCountElems = Input.TypePositiveInteger($"Введите количество элементов в {i + 1} строке: ");
+				mas[i] = new int[newCountElems];
+			}
 			for (int i = 0; i < mas.GetUpperBound(0) + 1; ++i)
 			{
 				for (int j = 0; j < mas[i].Length; ++j)
@@ -140,48 +167,67 @@ namespace Lab_5
 		 */
 
 		//нахождение значения максимального элемента одномерного массива
-		static int FindMaxValue(int[] mas)
+		static void FindMaxValue(int[] mas, out int max)
 		{
-			int max = MIN;
-			for (int i = 0; i < mas.Length; ++i)
+			max = MIN;
+			if (mas.Length != 0)
 			{
-				max = max < mas[i]
-					? mas[i]
-					: max;
+				for (int i = 0; i < mas.Length; ++i)
+				{
+					max = max < mas[i]
+						? mas[i]
+						: max;
+				}
 			}
-			return max;
+			else
+            {
+				Print("Массив пустой, поиск максимального элемента невозможен: ");
+            }
 		}
 
 		// нахождение значения максимального элемента одномерного массива и его индекса
 		static void FindIndexMaxValue(int[] mas, out int index)
 		{
-			int max = MIN;
 			index = 0;
-			for (int i = 0; i < mas.Length; ++i)
-			{
-				max = max < mas[i]
-					? mas[i]
-					: max;
-				index = max < mas[i]
-					? i
-					: index;
+			if (mas.Length != 0) {
+				int max = MIN;
+				for (int i = 0; i < mas.Length; ++i)
+				{
+					max = max < mas[i]
+						? mas[i]
+						: max;
+					index = max < mas[i]
+						? i
+						: index;
+				}
 			}
+			else
+            {
+				Print("Поиск максимального элемента невозможен ");
+            }
 		}
 
 		//нахождение значения максимального элемента двумерного массива
-		static int FindMaxValue(int[,] mas)
+		static void FindMaxValue(int[,] mas, out int max)
 		{
-			int max = MIN, rows = mas.GetUpperBound(0) + 1, cols = mas.Length / rows;
-			for (int i = 0; i < rows; ++i)
+			int max = MIN;
+			if (mas.Length != 0)
 			{
-				for (int j = 0; j < cols; ++j)
+				int rows = mas.GetUpperBound(0) + 1, cols = mas.Length / rows;
+				for (int i = 0; i < rows; ++i)
 				{
-					max = max < mas[i, j]
-						? mas[i, j]
-						: max;
+					for (int j = 0; j < cols; ++j)
+					{
+						max = max < mas[i, j]
+							? mas[i, j]
+							: max;
+					}
 				}
 			}
-			return max;
+			else
+            {
+				Print("");
+            }
 		}
 
 		// нахождение значения максимального элемента двумерного массива и его индексов
@@ -368,6 +414,8 @@ namespace Lab_5
 
 			return result;
 		}
+
+		// добавление строки после строки с максимальным элементом
 		static int[,] AddRowAfterMax(int [,] mas)
 		{
 			Console.WriteLine("Добавление строки в двумерный массив");
@@ -405,7 +453,7 @@ namespace Lab_5
             {
 				newMas[i] = new int[mas[i - 1].Length];
             }
-			PrintArray(newMas);
+			PrintMas(newMas);
 			for (int i = 0; i < newMas[0].Length; ++i)
             {
 				newMas[0][i] = Input.TypeInteger($"Введите {i + 1} элемент новой строки: ");
@@ -428,45 +476,66 @@ namespace Lab_5
 		 */
 
 		// функция вывода одномерного массива в консоль
-		static void PrintArray(int [] mas)
+		static void PrintMas(int [] mas)
 		{
-			Console.WriteLine("----------Вывод одномерного массива----------");
-			for (int i = 0; i < mas.Length; ++i)
+			if (mas.Length != 0)
 			{
-				Console.Write(mas[i] + " ");
+				Console.WriteLine("----------Вывод одномерного массива----------");
+				for (int i = 0; i < mas.Length; ++i)
+				{
+					Print(mas[i] + " ");
+				}
+				Console.WriteLine();
 			}
-			Console.WriteLine();
+			else
+            {
+				Print("Массив пустой");
+            }
 		}
 
 		// функция вывода двумерного массива в консоль
-		static void PrintArray(int [,] mas)
+		static void PrintMas(int [,] mas)
 		{
-			Console.WriteLine("----------Вывод двумерного массива----------");
-			int rows = mas.GetUpperBound(0) + 1, cols = mas.Length / rows;
-			for (int i = 0; i < rows; ++i)
+			//Console.WriteLine("----------Вывод двумерного массива----------");
+			if (mas.Length != 0)
 			{
-				for (int j = 0; j < cols; ++j)
+				int rows = mas.GetUpperBound(0) + 1, cols = mas.Length / rows;
+				for (int i = 0; i < rows; ++i)
 				{
-					Console.Write(mas[i, j] + " ");
+					for (int j = 0; j < cols; ++j)
+					{
+						Print(mas[i, j] + " ");
+					}
+					Console.WriteLine();
 				}
 				Console.WriteLine();
 			}
-			Console.WriteLine();
+			else
+            {
+				Print("Массив пуст");
+            }
 		}
 
 		// функция вывода рваного массива в консоль
-		static void PrintArray(int [][] mas)
+		static void PrintMas(int [][] mas)
 		{
-			Console.WriteLine("----------Вывод рваного массива----------");
-			for (int i = 0; i < mas.GetUpperBound(0) + 1; ++i)
+			//Console.WriteLine("----------Вывод рваного массива----------");
+			if (mas.Length != 0)
 			{
-				foreach (int temp in mas[i])
+				for (int i = 0; i < mas.GetUpperBound(0) + 1; ++i)
 				{
-					Console.Write(temp + " ");
+					foreach (int temp in mas[i])
+					{
+						Print(temp + " ");
+					}
+					Console.WriteLine();
 				}
 				Console.WriteLine();
-			}
-			Console.WriteLine();
+			} 
+			else
+            {
+				Print("Массив пустой");
+            }
 		}
 
 		/*
@@ -476,47 +545,77 @@ namespace Lab_5
 		 */
 
 		//
+		static void Print(string message)
+        {
+			Console.WriteLine(message);
+		}
 
 		static void Main(string[] args)
 		{
-			int[] masOneDemisionRand = new int[4];
-			int[] masOneDemisionUser = new int[7];
-			int[,] masTwoDemisionRand = new int[2, 3];
-			int[,] masTwoDemisionUser = new int[3, 2];
-			int[][] masStairsRand = new int[3][];
-			masStairsRand[0] = new int[5];
-			masStairsRand[1] = new int[3];
-			masStairsRand[2] = new int[2];
-			int[][] masStairsUser = new int[3][];
-			masStairsUser[0] = new int[2];
-			masStairsUser[1] = new int[1];
-			masStairsUser[2] = new int[3];
-			//RandomFillingArray(masOneDemisionRand);
-			//RandomFillingArray(masOneDemisionUser);
-			//UserFillingArray(masOneDemisionUser);
-			//RandomFillingArray(masTwoDemisionRand);
-			//RandomFillingArray(masTwoDemisionUser);
-			//UserFillingArray(masTwoDemisionUser);
-			RandomFillingArray(masStairsRand);
-			UserFillingArray(masStairsUser);
-			//PrintArray(masOneDemisionRand);
-			//PrintArray(masOneDemisionUser);
-			//PrintArray(masTwoDemisionRand);
-			//PrintArray(masTwoDemisionUser);
-			PrintArray(masStairsRand);
-			PrintArray(masStairsUser);
-			//masOneDemisionRand = DeleteOddElements(masOneDemisionRand);
-			//masOneDemisionUser = DeleteOddElements(masOneDemisionUser);
-			//masTwoDemisionRand = AddRowAfterMax(masTwoDemisionRand);
-			//masTwoDemisionUser = AddRowAfterMax(masTwoDemisionUser);
-			//PrintArray(masOneDemisionRand);
-			//PrintArray(masOneDemisionUser);
-			//PrintArray(masTwoDemisionRand);
-			//PrintArray(masTwoDemisionUser);
-			masStairsRand = AddRowAfterFirstRow(masStairsRand);
-			masStairsUser = AddRowAfterFirstRow(masStairsUser);
-			PrintArray(masStairsRand);
-			PrintArray(masStairsUser);
+			int userChoise;
+			int[] oneDemisionMas = new int[0];
+			int[,] twoDemisionMas = new int[0, 0];
+			int[][] stairsMas = new int[3][];
+			stairsMas[0] = new int[3];
+			stairsMas[1] = new int[0];
+			stairsMas[2] = new int[5];
+			UserFillingArray(stairsMas);
+			PrintMas(stairsMas);
+			//do
+			//{
+			//	Print("1. Работа с одномерными массивами\n" +
+			//		  "2. Работа с двумерными массивами\n" +
+			//		  "3. Работа с рваными массивами\n" +
+			//		  "0. Выход");
+			//	userChoise = Input.TypeInteger("Выберите одну из предложенных функций: ");
+			//	switch(userChoise)
+			//             {
+			//		case 1:
+			//			int userChoiseOneDemisionMas = 0;
+			//			while (userChoiseOneDemisionMas != 0)
+			//                     {
+			//				Print("1. Создание одномерного массива и его заполнение\n" +
+			//					  "2. Вывод одномерного массива\n" +
+			//					  "3. Удаление нечётных элементов\n" +
+			//					  "4. Поиск максимального элемента\n" +
+			//					  "5. Поиск максимального элемента\n" +
+			//					  "6. Сортировка массива\n" +
+			//					  "0. Назад");
+			//				userChoiseOneDemisionMas = Input.TypeInteger("Выберите одну из предложенных функций: ");
+			//				switch(userChoiseOneDemisionMas)
+			//                         {
+			//					case 1:
+			//						Print("Создание одномерного массива и его заполненине");
+			//						int 
+			//						break;
+			//					case 2:
+			//						Print("Вывод одномерного массива");
+			//						PrintMas
+			//						break;
+			//					case 3:
+			//						Print("Удаление нечётных элементов");
+			//						break;
+			//					case 4:
+			//					case 5:
+			//					case 6:
+			//					case 0:
+			//						break;
+			//					default:
+			//						break;
+			//                         }
+			//                     }
+			//			break;
+			//		case 2:
+
+			//		case 3:
+
+			//		case 0:
+			//			break;
+			//		default:
+			//			Console.WriteLine("Ты чё, ебанутый? Ты что там делаешь? Такой команды нет");
+			//			break;
+			//             }
+			//} while (userChoise != 0);
 		}
 	}
 }

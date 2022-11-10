@@ -64,7 +64,7 @@ namespace MyClassLibrary
                 {
 					Console.WriteLine("Значение выражение от данного аргумента не может быть вычислено");
                 }
-				isCorrectFormula = result > 0 || result < -3;
+				isCorrectFormula = result > 0 || result < -2;
 			} while (!isCorrectInput || isCorrectFormula);
 			return result;
 		}
