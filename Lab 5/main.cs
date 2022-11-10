@@ -224,6 +224,7 @@ namespace Lab_5
 							: max;
 					}
 				}
+				Print($"Максимальный элемент массива - {max}");
 			}
 			else
             {
@@ -250,6 +251,7 @@ namespace Lab_5
 						}
 					}
 				}
+				Print($"Элемент с индексами [{row}:{col} имеет максимальное значение в массиве, равное {max}");
 			}
 			else
             {
@@ -272,6 +274,11 @@ namespace Lab_5
 							: max;
 					}
 				}
+				Print($"Максимальный элемент массива - {max}");
+			}
+			else
+            {
+				Print("Невозможно найти максимальный элемент массива");
 			}
 		}
 
@@ -280,17 +287,25 @@ namespace Lab_5
 		{
 			row = 0; col = 0;
 			int max = MIN, rows = mas.GetUpperBound(0) + 1;
-			for (int i = 0; i < rows; ++i)
+			if (mas.Length != 0)
 			{
-				for (int j = 0; j <= mas[i].Length; ++j)
+				for (int i = 0; i < rows; ++i)
 				{
-					if (max < mas[i][j])
+					for (int j = 0; j <= mas[i].Length; ++j)
 					{
-						max = mas[i][j];
-						row = i;
-						col = j;
+						if (max < mas[i][j])
+						{
+							max = mas[i][j];
+							row = i;
+							col = j;
+						}
 					}
 				}
+				Print($"Элемент с индексами [{row}:{col} имеет максимальное значение в массиве, равное {max}");
+			}
+			else
+            {
+				Print("Невозможно найти максимальный элемент массива");
 			}
 		}
 
