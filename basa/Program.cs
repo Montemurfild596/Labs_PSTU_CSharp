@@ -6,7 +6,16 @@ namespace basa
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            int[] a = new int[5] {1, 2, 3, 4, 5};
+            foreach (int temp in a)
+            {
+                Console.WriteLine(temp);
+            }
+            a = new int[3];
+            foreach (int temp in a)
+            {
+                Console.WriteLine(temp);
+            }
         }
     }
 }
