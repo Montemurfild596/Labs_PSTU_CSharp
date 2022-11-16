@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {}
+    "net5.0": {
+      "MyClassLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/MyClassLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MyClassLibrary.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "MyClassLibrary/1.0.0": {
+      "type": "project",
+      "path": "../MyClassLibrary/MyClassLibrary.csproj",
+      "msbuildProject": "../MyClassLibrary/MyClassLibrary.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net5.0": []
+    "net5.0": [
+      "MyClassLibrary >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\User\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Projects\\CSahrp\\CSharp\\MyClassLibrary\\MyClassLibrary.csproj": {
+              "projectPath": "C:\\Projects\\CSahrp\\CSharp\\MyClassLibrary\\MyClassLibrary.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
