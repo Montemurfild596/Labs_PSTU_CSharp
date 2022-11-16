@@ -53,7 +53,7 @@ namespace Lab_6
 			} while (isNotAllRight);
 		}
 
-		static void RandomFillingArray(ref double[][] mas)
+		static void RandomFillingMas(ref double[][] mas)
 		{
 			double lower, upper;
 			InputDoubleBoundaries(out lower, out upper, "\tВвод границ отрезка случайных чисел");
@@ -70,12 +70,12 @@ namespace Lab_6
 			{
 				for (int j = 0; j < mas[i].Length; ++j)
 				{
-					mas[i][j] = rnd.NextDouble() * (upper - lower) + lower;
+					mas[i][j] = Math.Round(rnd.NextDouble() * (upper - lower) + lower, 5);
 				}
 			}
 		}
 
-		static void UserFillingArray(ref double[][] mas)
+		static void UserFillingMas(ref double[][] mas)
 		{
 			int newCountRows, newCountElems;
 			newCountRows = Input.TypePositiveInteger("Введите количество строк массива: ");
@@ -93,6 +93,49 @@ namespace Lab_6
 				}
 			}
 		}
+
+		static void SortMas(ref double[][] mas)
+        {
+			for (int i = 0; i < mas.GetUpperBound(0) + 1; ++i)
+            {
+				Array.Sort(mas[i]);
+            }
+        }
+
+		static void SortMasLength(ref double[][] mas)
+        {
+			int[] masLength = new int[mas.GetUpperBound(0) + 1];
+			for (int i = 0; i < mas.GetUpperBound(0) + 1; ++i)
+            {
+				masLength[i] = mas[i].Length;
+            }
+			for (int i = 0; i < masLength.Length; ++i)
+            {
+				int minElem = masLength[i];
+				for (int j = i + 1; j < masLength.Length; ++j)
+                {
+					if (minElem > masLength[j])
+                    {
+						double[] firstMas = new double[masLength[i]], secondMas = new double[masLength[j]];
+						Array.Copy(mas[i], 0, firstMas, 0, mas[i].Length);
+						Array.Copy(mas[j], 0, secondMas, 0, mas[j].Length);
+						mas[i] = new double[secondMas.Length];
+						for (int k = 0; k < mas[i].Length; ++k)
+                        {
+							mas[i][k] = secondMas[k];
+                        }
+						mas[j] = new double[firstMas.Length];
+						for (int k = 0; k < mas[j].Length; ++k)
+						{
+							mas[j][k] = firstMas[k];
+						}
+						minElem = masLength[j];
+						masLength[j] = masLength[i];
+						masLength[i] = minElem;
+					}
+                }
+            }
+        }
 
 		static void PrintMas(double[][] mas)
 		{
@@ -121,7 +164,13 @@ namespace Lab_6
 		}
 		static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+			double[][] stairsMas = new double[0][];
+			RandomFillingMas(ref stairsMas);
+			PrintMas(stairsMas);
+			SortMas(ref stairsMas);
+			PrintMas(stairsMas);
+			SortMasLength(ref stairsMas);
+			PrintMas(stairsMas);
         }
     }
 }

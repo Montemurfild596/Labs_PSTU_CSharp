@@ -1,0 +1,19 @@
+C:\Projects\CSahrp\CSharp\Lab 6\bin\Debug\net5.0\Lab 6.exe
+C:\Projects\CSahrp\CSharp\Lab 6\bin\Debug\net5.0\Lab 6.deps.json
+C:\Projects\CSahrp\CSharp\Lab 6\bin\Debug\net5.0\Lab 6.runtimeconfig.json
+C:\Projects\CSahrp\CSharp\Lab 6\bin\Debug\net5.0\Lab 6.runtimeconfig.dev.json
+C:\Projects\CSahrp\CSharp\Lab 6\bin\Debug\net5.0\Lab 6.dll
+C:\Projects\CSahrp\CSharp\Lab 6\bin\Debug\net5.0\ref\Lab 6.dll
+C:\Projects\CSahrp\CSharp\Lab 6\bin\Debug\net5.0\Lab 6.pdb
+C:\Projects\CSahrp\CSharp\Lab 6\bin\Debug\net5.0\MyClassLibrary.dll
+C:\Projects\CSahrp\CSharp\Lab 6\bin\Debug\net5.0\MyClassLibrary.pdb
+C:\Projects\CSahrp\CSharp\Lab 6\obj\Debug\net5.0\Lab 6.csproj.AssemblyReference.cache
+C:\Projects\CSahrp\CSharp\Lab 6\obj\Debug\net5.0\Lab 6.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\CSahrp\CSharp\Lab 6\obj\Debug\net5.0\Lab 6.AssemblyInfoInputs.cache
+C:\Projects\CSahrp\CSharp\Lab 6\obj\Debug\net5.0\Lab 6.AssemblyInfo.cs
+C:\Projects\CSahrp\CSharp\Lab 6\obj\Debug\net5.0\Lab 6.csproj.CoreCompileInputs.cache
+C:\Projects\CSahrp\CSharp\Lab 6\obj\Debug\net5.0\Lab 6.csproj.CopyComplete
+C:\Projects\CSahrp\CSharp\Lab 6\obj\Debug\net5.0\Lab 6.dll
+C:\Projects\CSahrp\CSharp\Lab 6\obj\Debug\net5.0\ref\Lab 6.dll
+C:\Projects\CSahrp\CSharp\Lab 6\obj\Debug\net5.0\Lab 6.pdb
+C:\Projects\CSahrp\CSharp\Lab 6\obj\Debug\net5.0\Lab 6.genruntimeconfig.cache
