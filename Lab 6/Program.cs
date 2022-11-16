@@ -5,6 +5,14 @@ namespace Lab_6
 {
     class Program
     {
+
+		/*
+		 * 
+		 * 1 задача
+		 * 
+		 */
+
+
 		static void InputBoundaries(out int a, out int b, string message)
 		{
 			string buf;
@@ -86,6 +94,31 @@ namespace Lab_6
 			}
 		}
 
+		static void PrintMas(int[][] mas)
+		{
+			Print("");
+			if (mas.Length != 0)
+			{
+				for (int i = 0; i < mas.GetUpperBound(0) + 1; ++i)
+				{
+					foreach (int temp in mas[i])
+					{
+						Console.Write(temp + " ");
+					}
+					Print("");
+				}
+				Print("");
+			}
+			else
+			{
+				Print("Массив пустой\n");
+			}
+		}
+
+		static void Print(string message)
+		{
+			Console.WriteLine(message);
+		}
 		static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
