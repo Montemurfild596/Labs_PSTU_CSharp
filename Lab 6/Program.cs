@@ -67,6 +67,25 @@ namespace Lab_6
 			}
 		}
 
+		static void UserFillingArray(ref int[][] mas)
+		{
+			int newCountRows, newCountElems;
+			newCountRows = Input.TypePositiveInteger("Введите количество строк массива: ");
+			mas = new int[newCountRows][];
+			for (int i = 0; i < newCountRows; ++i)
+			{
+				newCountElems = Input.TypePositiveInteger($"Введите количество элементов в {i + 1} строке: ");
+				mas[i] = new int[newCountElems];
+			}
+			for (int i = 0; i < mas.GetUpperBound(0) + 1; ++i)
+			{
+				for (int j = 0; j < mas[i].Length; ++j)
+				{
+					mas[i][j] = Input.TypeInteger($"Введите значение элемента с индексами [{i + 1}, {j + 1}] : ");
+				}
+			}
+		}
+
 		static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
