@@ -45,7 +45,27 @@ namespace Lab_6
 			} while (isNotAllRight);
 		}
 
-
+		static void RandomFillingArray(ref int[][] mas)
+		{
+			int lower, upper;
+			InputBoundaries(out lower, out upper, "\tВвод границ отрезка случайных чисел");
+			Random rnd = new Random();
+			int newCountRows, newCountElems;
+			newCountRows = Input.TypePositiveInteger("Введите количество строк массива: ");
+			mas = new int[newCountRows][];
+			for (int i = 0; i < newCountRows; ++i)
+			{
+				newCountElems = Input.TypePositiveInteger($"Введите количество элементов в {i + 1} строке: ");
+				mas[i] = new int[newCountElems];
+			}
+			for (int i = 0; i < mas.GetUpperBound(0) + 1; ++i)
+			{
+				for (int j = 0; j < mas[i].Length; ++j)
+				{
+					mas[i][j] = rnd.Next(lower, upper + 1);
+				}
+			}
+		}
 
 		static void Main(string[] args)
         {
