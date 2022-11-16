@@ -13,7 +13,7 @@ namespace Lab_6
 		 */
 
 
-		static void InputBoundaries(out int a, out int b, string message)
+		static void InputDoubleBoundaries(out double a, out double b, string message)
 		{
 			string buf;
 			bool isCorrectLeftBoundary, isCorrectRightBoundary, isUpperMoreThanLower = false, isNotAllRight;
@@ -22,23 +22,23 @@ namespace Lab_6
 				Console.WriteLine(message);
 				Console.Write("Введите нижнюю границу: ");
 				buf = Console.ReadLine();
-				isCorrectLeftBoundary = Int32.TryParse(buf, out a);
+				isCorrectLeftBoundary = Double.TryParse(buf, out a);
 				Console.Write("Введите верхнюю границу: ");
 				buf = Console.ReadLine();
-				isCorrectRightBoundary = Int32.TryParse(buf, out b);
+				isCorrectRightBoundary = Double.TryParse(buf, out b);
 				if (!isCorrectRightBoundary || !isCorrectLeftBoundary)
 				{
 					if (!isCorrectRightBoundary && !isCorrectLeftBoundary)
 					{
-						Console.WriteLine("Ошибка: значения нижней и верхней границ не соответствуют типу integer");
+						Console.WriteLine("Ошибка: значения нижней и верхней границ не соответствуют типу double");
 					}
 					else if (!isCorrectRightBoundary)
 					{
-						Console.WriteLine("Ошибка: значение верхней границы не соответствует типу integer");
+						Console.WriteLine("Ошибка: значение верхней границы не соответствует типу double");
 					}
 					else
 					{
-						Console.WriteLine("Ошибка: значение нижней границы не соответствует типу integer");
+						Console.WriteLine("Ошибка: значение нижней границы не соответствует типу double");
 					}
 				}
 				else
@@ -53,55 +53,55 @@ namespace Lab_6
 			} while (isNotAllRight);
 		}
 
-		static void RandomFillingArray(ref int[][] mas)
+		static void RandomFillingArray(ref double[][] mas)
 		{
-			int lower, upper;
-			InputBoundaries(out lower, out upper, "\tВвод границ отрезка случайных чисел");
+			double lower, upper;
+			InputDoubleBoundaries(out lower, out upper, "\tВвод границ отрезка случайных чисел");
 			Random rnd = new Random();
 			int newCountRows, newCountElems;
 			newCountRows = Input.TypePositiveInteger("Введите количество строк массива: ");
-			mas = new int[newCountRows][];
+			mas = new double[newCountRows][];
 			for (int i = 0; i < newCountRows; ++i)
 			{
 				newCountElems = Input.TypePositiveInteger($"Введите количество элементов в {i + 1} строке: ");
-				mas[i] = new int[newCountElems];
+				mas[i] = new double[newCountElems];
 			}
 			for (int i = 0; i < mas.GetUpperBound(0) + 1; ++i)
 			{
 				for (int j = 0; j < mas[i].Length; ++j)
 				{
-					mas[i][j] = rnd.Next(lower, upper + 1);
+					mas[i][j] = rnd.NextDouble() * (upper - lower) + lower;
 				}
 			}
 		}
 
-		static void UserFillingArray(ref int[][] mas)
+		static void UserFillingArray(ref double[][] mas)
 		{
 			int newCountRows, newCountElems;
 			newCountRows = Input.TypePositiveInteger("Введите количество строк массива: ");
-			mas = new int[newCountRows][];
+			mas = new double[newCountRows][];
 			for (int i = 0; i < newCountRows; ++i)
 			{
 				newCountElems = Input.TypePositiveInteger($"Введите количество элементов в {i + 1} строке: ");
-				mas[i] = new int[newCountElems];
+				mas[i] = new double[newCountElems];
 			}
 			for (int i = 0; i < mas.GetUpperBound(0) + 1; ++i)
 			{
 				for (int j = 0; j < mas[i].Length; ++j)
 				{
-					mas[i][j] = Input.TypeInteger($"Введите значение элемента с индексами [{i + 1}, {j + 1}] : ");
+					mas[i][j] = Input.TypeDouble($"Введите значение элемента с индексами [{i + 1}, {j + 1}] : ");
 				}
 			}
 		}
 
-		static void PrintMas(int[][] mas)
+		static void PrintMas(double[][] mas)
 		{
 			Print("");
 			if (mas.Length != 0)
 			{
 				for (int i = 0; i < mas.GetUpperBound(0) + 1; ++i)
 				{
-					foreach (int temp in mas[i])
+					foreach (double temp in mas[i])
 					{
 						Console.Write(temp + " ");
 					}
