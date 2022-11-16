@@ -56,7 +56,7 @@ namespace Lab_5
 		 */
 
 		// функция заполнения одномерного массива случайными числами
-		static void RandomFillingArray(ref int[] mas)
+		static void RandomFillingMas(ref int[] mas)
 		{
 			int lower, upper;
 			InputBoundaries(out lower, out upper, "\tВвод границ отрезка случайных чисел");
@@ -71,7 +71,7 @@ namespace Lab_5
 		}
 
 		// функция заполнения двумерного массива случайными числами
-		static void RandomFillingArray(ref int[,] mas)
+		static void RandomFillingMas(ref int[,] mas)
 		{
 			int lower, upper;
 			InputBoundaries(out lower, out upper, "\tВвод границ отрезка случайных чисел");
@@ -90,7 +90,7 @@ namespace Lab_5
 		}
 
 		// функция заполнения рваного массива случайными числами
-		static void RandomFillingArray(ref int[][] mas)
+		static void RandomFillingMas(ref int[][] mas)
 		{
 			int lower, upper;
 			InputBoundaries(out lower, out upper, "\tВвод границ отрезка случайных чисел");
@@ -113,7 +113,7 @@ namespace Lab_5
 		}
 
 		// функция заполнения одномерного массива значениями пользователя
-		static void UserFillingArray(ref int[] mas)
+		static void UserFillingMas(ref int[] mas)
 		{
 			int masLength;
 			masLength = Input.TypePositiveInteger("Введите положительное значение размера массива: ");
@@ -125,7 +125,7 @@ namespace Lab_5
 		}
 
 		// функция заполнения двумерного массива значениями пользователя
-		static void UserFillingArray(ref int[,] mas)
+		static void UserFillingMas(ref int[,] mas)
 		{
 			int newCountRows, newCountCols;
 			newCountRows = Input.TypePositiveInteger("Введите количество строк: ");
@@ -141,7 +141,7 @@ namespace Lab_5
 		}
 
 		// функция заполнения рваного массива значениями пользователя
-		static void UserFillingArray(ref int[][] mas)
+		static void UserFillingMas(ref int[][] mas)
 		{
 			int newCountRows, newCountElems;
 			newCountRows = Input.TypePositiveInteger("Введите количество строк массива: ");
@@ -661,10 +661,10 @@ namespace Lab_5
 						switch (userChoiseOneDemisionFilling)
 						{
 							case 1:
-								RandomFillingArray(ref oneDemisionMas);
+								RandomFillingMas(ref oneDemisionMas);
 								break;
 							case 2:
-								UserFillingArray(ref oneDemisionMas);
+								UserFillingMas(ref oneDemisionMas);
 								break;
 							default:
 								Print("Ошибка: создание массива невозможно,\nтак как введено неверное значение\n");
@@ -732,10 +732,10 @@ namespace Lab_5
 						switch (userChoiseTwoDemisionFilling)
 						{
 							case 1:
-								RandomFillingArray(ref twoDemisionMas);
+								RandomFillingMas(ref twoDemisionMas);
 								break;
 							case 2:
-								UserFillingArray(ref twoDemisionMas);
+								UserFillingMas(ref twoDemisionMas);
 								break;
 							default:
 								Print("Ошибка: создание массива невозможно,\nтак как введено неверное значение\n");
@@ -802,10 +802,10 @@ namespace Lab_5
 						switch (userChoiseStairsDemisionFilling)
 						{
 							case 1:
-								RandomFillingArray(ref stairsMas);
+								RandomFillingMas(ref stairsMas);
 								break;
 							case 2:
-								UserFillingArray(ref stairsMas);
+								UserFillingMas(ref stairsMas);
 								break;
 							default:
 								Print("Ошибка: создание массива невозможно,\nтак как введено неверное значение\n");
@@ -846,6 +846,7 @@ namespace Lab_5
 				}
 			} while (userChoiseStairsDemisionMas != 0);
 		}
+
 		// главное меню
 		static void Menu(int[] oneDemisionMas, int[,] twoDemisionMas, int[][] stairsMas)
         {
