@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\CSahrp\\CSharp\\Lab 1.2\\Lab 1.2.csproj",
+      "projectUniqueName": "C:\\Projects\\CSharp\\CSharp\\Lab 1.2\\Lab 1.2.csproj",
       "projectName": "Lab 1.2",
-      "projectPath": "C:\\Projects\\CSahrp\\CSharp\\Lab 1.2\\Lab 1.2.csproj",
+      "projectPath": "C:\\Projects\\CSharp\\CSharp\\Lab 1.2\\Lab 1.2.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\CSahrp\\CSharp\\Lab 1.2\\obj\\",
+      "outputPath": "C:\\Projects\\CSharp\\CSharp\\Lab 1.2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -53,8 +53,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Projects\\CSahrp\\CSharp\\MyClassLibrary\\MyClassLibrary.csproj": {
-              "projectPath": "C:\\Projects\\CSahrp\\CSharp\\MyClassLibrary\\MyClassLibrary.csproj"
+            "C:\\Projects\\CSharp\\CSharp\\MyClassLibrary\\MyClassLibrary.csproj": {
+              "projectPath": "C:\\Projects\\CSharp\\CSharp\\MyClassLibrary\\MyClassLibrary.csproj"
             }
           }
         }

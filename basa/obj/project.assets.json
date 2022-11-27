@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\CSahrp\\CSharp\\basa\\basa.csproj",
+      "projectUniqueName": "C:\\Projects\\CSharp\\CSharp\\basa\\basa.csproj",
       "projectName": "basa",
-      "projectPath": "C:\\Projects\\CSahrp\\CSharp\\basa\\basa.csproj",
+      "projectPath": "C:\\Projects\\CSharp\\CSharp\\basa\\basa.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\CSahrp\\CSharp\\basa\\obj\\",
+      "outputPath": "C:\\Projects\\CSharp\\CSharp\\basa\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",

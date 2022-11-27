@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "luSV1L2vZr81mmqovDmCs0lml4GoOrNSCVEpzTm9MmFQlr2GCLPWO2p/gBOuNxBAHmjubYg+GZJ1eSGupvM1Rw==",
+  "dgSpecHash": "MA4h5iwsdoYD7Pjqf/Qe05h2Zso4FdmxIJ/CRFmXKPxWMcX4+ijEYe2CUiArLo9YGomFbWigu2E11vlDFI1x5Q==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\CSahrp\\CSharp\\MyClassLibrary\\MyClassLibrary.csproj",
+  "projectFilePath": "C:\\Projects\\CSharp\\CSharp\\MyClassLibrary\\MyClassLibrary.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -15,7 +15,7 @@ namespace Lab_5
 			bool isCorrectLeftBoundary, isCorrectRightBoundary, isUpperMoreThanLower = false, isNotAllRight;
 			do
 			{
-				Console.WriteLine(message);
+				Print(message);
 				Console.Write("Введите нижнюю границу: ");
 				buf = Console.ReadLine();
 				isCorrectLeftBoundary = Int32.TryParse(buf, out a);
@@ -49,13 +49,14 @@ namespace Lab_5
 			} while (isNotAllRight);
 		}
 
-		/*
-		 * 
-		 * функции заполнения массивов
-		 * 
-		 */
+		#region Функции заполнения массивов
 
-		// функция заполнения одномерного массива случайными числами
+		#region Функции заполнения массива случайными числами
+
+		/// <summary>
+		/// Функция заполнения одномерного массива случайными числами
+		/// </summary>
+		/// <param name="mas">Одномерный массив</param>
 		static void RandomFillingMas(ref int[] mas)
 		{
 			int lower, upper;
@@ -70,7 +71,10 @@ namespace Lab_5
 			}
 		}
 
-		// функция заполнения двумерного массива случайными числами
+		/// <summary>
+		/// Функция заполнения двумерного массива случайными числами
+		/// </summary>
+		/// <param name="mas">Двумерный массив</param>
 		static void RandomFillingMas(ref int[,] mas)
 		{
 			int lower, upper;
@@ -89,7 +93,10 @@ namespace Lab_5
 			}
 		}
 
-		// функция заполнения рваного массива случайными числами
+		/// <summary>
+		/// Функция заполнения рваного массива случайными числами
+		/// </summary>
+		/// <param name="mas">Рваный массив</param>
 		static void RandomFillingMas(ref int[][] mas)
 		{
 			int lower, upper;
@@ -112,8 +119,12 @@ namespace Lab_5
 			}
 		}
 
-		// функция заполнения одномерного массива значениями пользователя
-		static void UserFillingMas(ref int[] mas)
+        #endregion
+
+        #region Функции заполнения массива пользовательским вводом
+
+        // функция заполнения одномерного массива значениями пользователя
+        static void UserFillingMas(ref int[] mas)
 		{
 			int masLength;
 			masLength = Input.TypePositiveInteger("Введите положительное значение размера массива: ");
@@ -160,13 +171,19 @@ namespace Lab_5
 			}
 		}
 
-		/*
-		 * 
-		 * функции нахождения минимальных и максимальных элементов
-		 * 
-		 */
+		#endregion
 
-		//нахождение значения максимального элемента одномерного массива
+		#endregion
+
+		#region Функции нахождения минимальных и максимальных элементов
+
+		#region Функции нахождения максимального элемента
+
+		/// <summary>
+		/// Нахождение значения максимального элемента одномерного массива
+		/// </summary>
+		/// <param name="mas">Массив</param>
+		/// <param name="max">Максимальное значение</param>
 		static void FindMaxValue(int[] mas, out int max)
 		{
 			max = MIN;
@@ -186,7 +203,12 @@ namespace Lab_5
             }
 		}
 
-		// нахождение значения максимального элемента одномерного массива и его индекса
+		/// <summary>
+		/// Нахождение значения максимального элемента одномерного массива и его индекса
+		/// </summary>
+		/// <param name="mas">Массив</param>
+		/// <param name="max">Максимальное значение</param>
+		/// <param name="index">Индекс максимального элемента</param>
 		static void FindIndexMaxValue(int[] mas, out int max, out int index)
 		{
 			index = 0; max = MIN;
@@ -207,7 +229,11 @@ namespace Lab_5
             }
 		}
 
-		//нахождение значения максимального элемента двумерного массива
+		/// <summary>
+		/// Нахождение значения максимального элемента двумерного массива
+		/// </summary>
+		/// <param name="mas">Массив</param>
+		/// <param name="max">Максимальное значение</param>
 		static void FindMaxValue(int[,] mas, out int max)
 		{
 			max = MIN;
@@ -231,7 +257,14 @@ namespace Lab_5
             }
 		}
 
-		// нахождение значения максимального элемента двумерного массива и его индексов
+		/// <summary>
+		///  Нахождение значения максимального элемента двумерного массива и его индексов
+		/// </summary>
+		/// <param name="mas">Массив</param>
+		/// <param name="max">Максимальное значение</param>
+		/// <param name="row">Строка с максимальным значением</param>
+		/// <param name="col">Столбец с максимальным значением</param>
+
 		static void FindIndexMaxValue(int [,] mas, out int max, out int row, out int col)
 		{
 			row = 0; col = 0; max = MIN;
@@ -258,7 +291,11 @@ namespace Lab_5
             }
 		}
 
-		//нахождение значения максимального элемента рваного массива
+		/// <summary>
+		/// нНахождение значения максимального элемента рваного массива
+		/// </summary>
+		/// <param name="mas">Массив</param>
+		/// <param name="max">Максимальное значение</param>
 		static void FindMaxValue(int[][] mas, out int max)
 		{
 			max = MIN; 
@@ -282,8 +319,17 @@ namespace Lab_5
 			}
 		}
 
-		// нахождение значения максимального элемента рваного массива и его индексов
-		static void FindIndexMaxValue(int[][] mas, out int max, out int row, out int col)
+        #endregion
+
+        #region Функции нахождения минимального элемента
+        /// <summary>
+        ///  Нахождение значения максимального элемента рваного массива и его индексов
+        /// </summary>
+        /// <param name="mas">Массив</param>
+        /// <param name="max">Максимальное значение</param>
+        /// <param name="row">Строка с максимальным значением</param>
+        /// <param name="col">Столбец с максимальным значением</param>
+        static void FindIndexMaxValue(int[][] mas, out int max, out int row, out int col)
 		{
 			row = 0; col = 0;
 			max = MIN;
@@ -310,7 +356,11 @@ namespace Lab_5
 			}
 		}
 
-		//нахождение значения минимального элемента одномерного массива
+		/// <summary>
+		/// Нахождение значения минимального элемента одномерного массива
+		/// </summary>
+		/// <param name="mas">Рваный массив</param>
+		/// <param name="min">Минимальное значение</param>
 		static void FindMinValue(int[] mas, out int min)
 		{
 			min = MAX;
@@ -330,7 +380,12 @@ namespace Lab_5
             }
 		}
 
-		// нахождение значения минимального элемента одномерного массива и его индекса
+		/// <summary>
+		/// Нахождение значения минимального элемента одномерного массива и его индекса
+		/// </summary>
+		/// <param name="mas">Одномерный массив</param>
+		/// <param name="min">Минимальное значение</param>
+		/// <param name="index">Индекс минимального элемента</param>
 		static void FindIndexMinValue(int[] mas, out int min, out int index)
 		{
 			min = MAX; index = 0;
@@ -352,7 +407,11 @@ namespace Lab_5
             }
 		}
 
-		//нахождение значения минимального элемента двумерного массива
+		/// <summary>
+		/// Нахождение значения минимального элемента двумерного массива
+		/// </summary>
+		/// <param name="mas">Двумерный массив</param>
+		/// <param name="min">Минимальное значение</param>
 		static void FindMinValue(int[,] mas, out int min)
 		{
 			min = MAX; 
@@ -376,7 +435,13 @@ namespace Lab_5
 			}
 		}
 
-		// нахождение значения минимального элемента двумерного массива и его индексов
+		/// <summary>
+		/// Нахождение значения минимального элемента двумерного массива и его индексов
+		/// </summary>
+		/// <param name="mas">Двумерный массив</param>
+		/// <param name="min">Минимальное значение</param>
+		/// <param name="row">Строка с минимальным элементом</param>
+		/// <param name="col">Столбец с минимальным элементом</param>
 		static void FindIndexMinValue(int[,] mas, out int min, out int row, out int col)
 		{
 			row = 0; col = 0; min = MAX;
@@ -403,7 +468,11 @@ namespace Lab_5
 			}
 		}
 
-		//нахождение значения минимального элемента рваного массива
+		/// <summary>
+		/// Нахождение значения минимального элемента рваного массива
+		/// </summary>
+		/// <param name="mas">Рваный массив</param>
+		/// <param name="min">Минимальное значение</param>
 		static void FindMinValue(int[][] mas, out int min)
 		{
 			min = MAX; 
@@ -427,7 +496,13 @@ namespace Lab_5
 			}
 		}
 
-		// нахождение значения минимального элемента рваного массива и его индексов
+		/// <summary>
+		/// Нахождение значения минимального элемента рваного массива и его индексов
+		/// </summary>
+		/// <param name="mas">Рваный массив</param>
+		/// <param name="min">Минимальное значение</param>
+		/// <param name="row">Строка с минимальным элементом</param>
+		/// <param name="col">Столбец с минимальным элементом</param>
 		static void FindIndexMinValue(int[][] mas, out int min, out int row, out int col)
 		{
 			row = 0; col = 0; min = MAX;
@@ -452,15 +527,17 @@ namespace Lab_5
 				Print($"Невозможно найти минимальный элемент массива\n");
 			}
 		}
+        #endregion
 
-		/*
-		 * 
-		 * работа с массивами
-		 * 
-		 */
+        #endregion
 
-		// удаление нечётных элементов из одномерного массива
-		static void DeleteOddElements(ref int[] mas)
+        #region Функции работы с массивами
+
+        /// <summary>
+        /// Функция удаления нечётных элементов из одномерного массива
+        /// </summary>
+        /// <param name="mas">Одномерный массив</param>
+        static void DeleteOddElements(ref int[] mas)
 		{
 			if (mas.Length != 0)
 			{
@@ -478,14 +555,17 @@ namespace Lab_5
 					if (mas[i] % 2 == 0)
 					{
 						result[j] = mas[i];
+						++j;
 					}
 					
 				}
+				PrintMas(result);
 				mas = new int[countEven];
 				for (int i = 0; i < mas.Length; ++i)
                 {
 					mas[i] = result[i];
                 }
+				PrintMas(mas);
 			}
 			else
             {
@@ -493,7 +573,10 @@ namespace Lab_5
             }
 		}
 
-		// добавление строки после строки с максимальным элементом
+		/// <summary>
+		/// Добавление строки после строки с максимальным элементом
+		/// </summary>
+		/// <param name="mas">Двумерный массив</param>
 		static void AddRowAfterMax(ref int[,] mas)
 		{
 			Print("Добавление строки в двумерный массив\n");
@@ -535,9 +618,12 @@ namespace Lab_5
             }
 			
 		}
-		
-		// добавление строки в начало массива
-		static int[][] AddRowAfterFirstRow(ref int[][] mas)
+
+		/// <summary>
+		/// Добавление строки в начало массива
+		/// </summary>
+		/// <param name="mas">Рваный массив</param>
+		static void AddRowAfterFirstRow(ref int[][] mas)
         {
 			int rows = mas.GetUpperBound(0) + 2, firstElems = Input.TypePositiveInteger("Введите количество элементов первой строки: ");
 			int[][] newMas = new int[rows][];
@@ -557,17 +643,29 @@ namespace Lab_5
 					newMas[i][j] = mas[i - 1][j];
                 }
             }
-			return newMas;
+			mas = new int[rows][];
+			for (int i = 0; i < rows; ++i)
+            {
+				mas[i] = new int[newMas[i].Length];
+            }
+			for (int i = 0; i < rows; ++i)
+            {
+				for (int j = 0; j < mas[i].Length; ++j)
+                {
+					mas[i][j] = newMas[i][j];
+                }
+            }
 
         }
 
-		/*
-		 * 
-		 * функции вывода массивов
-		 * 
-		 */
+		#endregion
 
-		// функция вывода одномерного массива в консоль
+		#region Функции вывода массивов
+
+		/// <summary>
+		/// Функция вывода одномерного массива в консоль
+		/// </summary>
+		/// <param name="mas">Одномерный массив</param>
 		static void PrintMas(int [] mas)
 		{
 			Print("");
@@ -577,7 +675,7 @@ namespace Lab_5
 				{
 					Console.Write(mas[i] + " ");
 				}
-				Print("");
+				Print("\n");
 			}
 			else
             {
@@ -585,7 +683,10 @@ namespace Lab_5
             }
 		}
 
-		// функция вывода двумерного массива в консоль
+		/// <summary>
+		/// Функция вывода двумерного массива в консоль
+		/// </summary>
+		/// <param name="mas">Двумерный массив</param>
 		static void PrintMas(int [,] mas)
 		{
 			Print("");
@@ -604,11 +705,15 @@ namespace Lab_5
 			}
 			else
             {
-				Print("Массив пуст");
+				Print("Массив пустой\n");
             }
+			
 		}
 
-		// функция вывода рваного массива в консоль
+		/// <summary>
+		/// Функция вывода рваного массива в консоль
+		/// </summary>
+		/// <param name="mas"></param>
 		static void PrintMas(int [][] mas)
 		{
 			Print("");
@@ -630,19 +735,20 @@ namespace Lab_5
             }
 		}
 
-		/*
-		 * 
-		 *  меню
-		 * 
-		 */
+        #endregion
 
-		// меню одномерного массива
-		static void oneDemisionMasMenu(ref int[] oneDemisionMas)
+        #region Функции меню
+
+		/// <summary>
+		/// Меню одномерного массива
+		/// </summary>
+		/// <param name="oneDemisionMas">Одномерный массив</param>
+        static void oneDemisionMasMenu(ref int[] oneDemisionMas)
         {
 			int userChoiseOneDemisionMas, oneDemisionMasMaxValue, oneDemisionMasMinValue;
 			do
 			{
-				Print("1. Создание одномерного массива и его заполнение\n" +
+				Print("\n1. Создание одномерного массива и его заполнение\n" +
 					  "2. Вывод одномерного массива\n" +
 					  "3. Удаление нечётных элементов\n" +
 					  "4. Поиск максимального элемента\n" +
@@ -651,62 +757,74 @@ namespace Lab_5
 					  "7. Поиск номера минимального элемента\n" +
 					  "0. Назад");
 				userChoiseOneDemisionMas = Input.TypeInteger("Выберите одну из предложенных функций: ");
+				Print("");
 				switch (userChoiseOneDemisionMas)
 				{
 					case 1:
-						Print("Создание одномерного массива и его заполнение");
+						Print("\n-----Создание одномерного массива и его заполнение-----\n");
 						Print("1. С помощью датчика случайных чисел\n" +
-							  "2. С помощью ручного ввода");
+							  "2. С помощью ручного ввода\n");
 						int userChoiseOneDemisionFilling = Input.TypeInteger("Выберите, каким образом звполнить массив:");
 						switch (userChoiseOneDemisionFilling)
 						{
 							case 1:
 								RandomFillingMas(ref oneDemisionMas);
+								Print("-----Создание и заполнение одномерного массива завершено-----\n");
 								break;
 							case 2:
 								UserFillingMas(ref oneDemisionMas);
+								Print("-----Создание и заполнение одномерного массива завершено-----\n");
 								break;
 							default:
-								Print("Ошибка: создание массива невозможно,\nтак как введено неверное значение\n");
+								Print("-----\nВведено неверное значение. Создание и заполнение одномерного массива не было завершено-----\n");
 								break;
 						}
 						break;
 					case 2:
-						Print("Вывод одномерного массива");
+						Print("\n----------Печать одномерного массива----------\n");
 						PrintMas(oneDemisionMas);
+						Print("----------Печать одномерного массива завершена----------\n");
 						break;
 					case 3:
-						Print("Удаление нечётных элементов");
+						Print("\n---------Удаление нечётных элементов----------\n");
 						DeleteOddElements(ref oneDemisionMas);
+						Print("---------Удаление нечётных элементов завершено----------\n");
 						break;
 					case 4:
-						Print("Поиск максимального элемента");
+						Print("\n----------Поиск максимального элемента----------\n");
 						FindMaxValue(oneDemisionMas, out oneDemisionMasMaxValue);
+						Print("----------Поиск максимального элемента завершён----------\n");
 						break;
 					case 5:
-						Print("Поиск индекса максимального элемента");
+						Print("\n----------Поиск номера максимального элемента----------\n");
 						int oneDemisionMasIndexMaxValue;
 						FindIndexMaxValue(oneDemisionMas, out oneDemisionMasMaxValue, out oneDemisionMasIndexMaxValue);
+						Print("----------Поиск номера максимального элемента завершён----------\n");
 						break;
 					case 6:
-						Print("");
+						Print("\n----------Поиск минимального элемента----------\n");
 						FindMinValue(oneDemisionMas, out oneDemisionMasMinValue);
+						Print("---------Поиск минимального элемента завершён----------\n");
 						break;
 					case 7:
-						Print("");
+						Print("\n----------Поиск номера минимального элемента----------\n");
 						int oneDemisionMasIndexMinValue;
 						FindIndexMinValue(oneDemisionMas, out oneDemisionMasMinValue, out oneDemisionMasIndexMinValue);
+						Print("----------Поиск номера минимального элемента завершён----------\n");
 						break;
 					case 0:
 						break;
 					default:
-						Print("Неизвестная функция");
+						Print("\nНеизвестная функция\n");
 						break;
 				}
 			} while (userChoiseOneDemisionMas != 0);
 		}
 
-		//меню двумерного масссива
+		/// <summary>
+		/// Меню двумерного массива
+		/// </summary>
+		/// <param name="twoDemisionMas">Двумерный массив</param>
 		static void twoDemisionMasMenu(ref int[,] twoDemisionMas)
         {
 			int userChoiseTwoDemisionMas;
@@ -721,11 +839,12 @@ namespace Lab_5
 					  "6. Поиск минимального элемента\n" +
 					  "7. Поиск номера минимального элемента\n" +
 					  "0. Назад");
+				Print("");
 				userChoiseTwoDemisionMas = Input.TypeInteger("Выберите одну из предложенных функций: ");
 				switch (userChoiseTwoDemisionMas)
 				{
 					case 1:
-						Print("Создание двумерного массива и его заполнение");
+						Print("\n-----Создание двумерного массива и его заполнение-----\n");
 						Print("1. С помощью датчика случайных чисел\n" +
 							  "2. С помощью ручного ввода");
 						int userChoiseTwoDemisionFilling = Input.TypeInteger("Выберите, каким образом звполнить массив:");
@@ -733,51 +852,62 @@ namespace Lab_5
 						{
 							case 1:
 								RandomFillingMas(ref twoDemisionMas);
+								Print("-----Создание и заполнение двумерного массива завершено-----\n");
 								break;
 							case 2:
 								UserFillingMas(ref twoDemisionMas);
+								Print("-----Создание и заполнение двумерного массива завершено-----\n");
 								break;
 							default:
-								Print("Ошибка: создание массива невозможно,\nтак как введено неверное значение\n");
+								Print("-----\nВведено неверное значение. Создание и заполнение двумерного массива не было завершено-----\n");
 								break;
 						}
 						break;
 					case 2:
-						Print("Вывод одномерного массива");
+						Print("\n----------Печать двумерного массива----------\n");
 						PrintMas(twoDemisionMas);
+						Print("----------Печать двумерного массива завершена----------\n");
 						break;
 					case 3:
-						Print("Удаление нечётных элементов");
+						Print("\n-----Добавление строки после максимального элемента-----\n");
 						AddRowAfterMax(ref twoDemisionMas);
+						Print("-----Добавление строки после максимального элемента завершено-----\n");
 						break;
 					case 4:
-						Print("Поиск максимального элемента");
+						Print("\n-----Поиск максимального элемента-----\n");
 						FindMaxValue(twoDemisionMas, out twoDemisionMasMaxValue);
+						Print("-----Поиск максимального элемента завершено-----\n");
 						break;
 					case 5:
-						Print("Поиск индекса максимального элемента");
+						Print("\n-----Поиск номера максимального элемента-----\n");
 						int rowMaxValue, colMaxValue;
 						FindIndexMaxValue(twoDemisionMas, out twoDemisionMasMaxValue, out rowMaxValue, out colMaxValue);
+						Print("-----Поиск номера максимального элемента завершено-----\n");
 						break;
 					case 6:
-						Print("");
+						Print("\n-----Поиск минимального элемента-----\n");
 						FindMinValue(twoDemisionMas, out twoDemisionMasMinValue);
+						Print("-----Поиск минимального элемента завершено-----\n");
 						break;
 					case 7:
-						Print("");
+						Print("\n-----Поиск номера минимального элемента-----\n");
 						int rowMinValue, colMinValue;
 						FindIndexMinValue(twoDemisionMas, out twoDemisionMasMinValue, out rowMinValue, out colMinValue);
+						Print("-----Поиск номера минимального элемента завершено-----\n");
 						break;
 					case 0:
 						break;
 					default:
-						Print("Неизвестная функция");
+						Print("\nНеизвестная функция\n");
 						break;
 				}
 			} while (userChoiseTwoDemisionMas != 0);
 		}
 
-		// меню ступенчатого массива
+		/// <summary>
+		/// Меню ступенчатого массива
+		/// </summary>
+		/// <param name="stairsMas">Рваный массив</param>
 		static void stairsMasMenu(ref int[][] stairsMas)
         {
 			int userChoiseStairsDemisionMas, stairsDemisionMasMaxValue, stairsDemisionMasMinValue;
@@ -792,10 +922,11 @@ namespace Lab_5
 					  "7. Поиск номера минимального элемента\n" +
 					  "0. Назад");
 				userChoiseStairsDemisionMas = Input.TypeInteger("Выберите одну из предложенных функций: ");
+				Print("");
 				switch (userChoiseStairsDemisionMas)
 				{
 					case 1:
-						Print("Создание двумерного массива и его заполнение");
+						Print("\n-----Создание рваного массива и его заполнение-----\n");
 						Print("1. С помощью датчика случайных чисел\n" +
 							  "2. С помощью ручного ввода");
 						int userChoiseStairsDemisionFilling = Input.TypeInteger("Выберите, каким образом звполнить массив:");
@@ -803,51 +934,64 @@ namespace Lab_5
 						{
 							case 1:
 								RandomFillingMas(ref stairsMas);
+								Print("-----Создание и заполнение рваного массива завершено-----\n");
 								break;
 							case 2:
 								UserFillingMas(ref stairsMas);
+								Print("-----Создание и заполнение рваного массива завершено-----\n");
 								break;
 							default:
-								Print("Ошибка: создание массива невозможно,\nтак как введено неверное значение\n");
+								Print("-----\nВведено неверное значение. Создание и заполнение рваного массива не было завершено-----\n");
 								break;
 						}
 						break;
 					case 2:
-						Print("Вывод одномерного массива");
+						Print("\n----------Печать рваного массива----------\n");
 						PrintMas(stairsMas);
+						Print("----------Печать рваного массива завершена----------\n");
 						break;
 					case 3:
-						Print("Удаление нечётных элементов");
+						Print("\n-----Добавление строки после максимального элемента-----\n");
 						AddRowAfterFirstRow(ref stairsMas);
+						Print("-----Добавление строки после максимального элемента завершено-----\n");
 						break;
 					case 4:
-						Print("Поиск максимального элемента");
+						Print("\n-----Поиск максимального элемента-----\n");
 						FindMaxValue(stairsMas, out stairsDemisionMasMaxValue);
+						Print("-----Поиск максимального элемента завершено-----\n");
 						break;
 					case 5:
-						Print("Поиск индекса максимального элемента");
+						Print("\n-----Поиск номера максимального элемента-----\n");
 						int rowMaxValue, colMaxValue;
 						FindIndexMaxValue(stairsMas, out stairsDemisionMasMaxValue, out rowMaxValue, out colMaxValue);
+						Print("-----Поиск номера максимального элемента завершено-----\n");
 						break;
 					case 6:
-						Print("");
+						Print("\n-----Поиск минимального элемента-----\n");
 						FindMinValue(stairsMas, out stairsDemisionMasMinValue);
+						Print("-----Поиск минимального элемента завершено-----\n");
 						break;
 					case 7:
-						Print("");
+						Print("\n-----Поиск номера минимального элемента-----\n");
 						int rowMinValue, colMinValue;
 						FindIndexMinValue(stairsMas, out stairsDemisionMasMinValue, out rowMinValue, out colMinValue);
+						Print("-----Поиск номера минимального элемента завершено-----\n");
 						break;
 					case 0:
 						break;
 					default:
-						Print("Неизвестная функция");
+						Print("\nНеизвестная функция\n");
 						break;
 				}
 			} while (userChoiseStairsDemisionMas != 0);
 		}
 
-		// главное меню
+		/// <summary>
+		/// Главное меню
+		/// </summary>
+		/// <param name="oneDemisionMas">Одномерный массив</param>
+		/// <param name="twoDemisionMas">Двумерный массив</param>
+		/// <param name="stairsMas">Рваный массив</param>
 		static void Menu(int[] oneDemisionMas, int[,] twoDemisionMas, int[][] stairsMas)
         {
 			int userChoise;
@@ -856,8 +1000,9 @@ namespace Lab_5
 				Print("1. Работа с одномерными массивами\n" +
 					  "2. Работа с двумерными массивами\n" +
 					  "3. Работа с рваными массивами\n" +
-					  "0. Выход");
+					  "0. Выход\n");
 				userChoise = Input.TypeInteger("Выберите одну из предложенных функций: ");
+				Print("");
 				switch (userChoise)
 				{
 					case 1:
@@ -878,8 +1023,13 @@ namespace Lab_5
 			} while (userChoise != 0);
 		}
 
-		// функция вывода сообщения
-		static void Print(string message)
+        #endregion
+
+        /// <summary>
+        /// Функция вывода сообщения
+        /// </summary>
+        /// <param name="message">Сообщение</param>
+        static void Print(string message)
         {
 			Console.WriteLine(message);
 		}
@@ -893,19 +1043,3 @@ namespace Lab_5
         }
 	}
 }
-
-
-
-	//-1234
-	//1234
-	//0
-	//0
-	//0
-	//0
-	//12
-	//1234
-	//1
-	//2
-	//3
-	//1
-	//2

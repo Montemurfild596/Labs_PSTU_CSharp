@@ -1,10 +1,12 @@
 ﻿using System;
+using System.IO;
 using MyClassLibrary;
 
 namespace Lab_6
 {
     class Program
     {
+		static string path = "/Projects/CSharp/CSharp/lab 6/text.txt";
 
 		/*
 		 * 
@@ -12,7 +14,7 @@ namespace Lab_6
 		 * 
 		 */
 
-
+		  
 		static void InputDoubleBoundaries(out double a, out double b, string message)
 		{
 			string buf;
@@ -158,12 +160,158 @@ namespace Lab_6
 			}
 		}
 
+		/*
+		 * 
+		 * 2 задача
+		 * 
+		 */
+
+		//
+		static void UserFillingString(out string text)
+        {
+			bool isNotAllRght = false;
+			Print("Пользовательский ввод строки");
+			do
+			{
+				if (isNotAllRght)
+				{
+					Print("Ошибка: неправильно введена строка. Введите заново");
+				}
+				text = Console.ReadLine();
+				isNotAllRght = !isCorrectString(text);
+			} while (isNotAllRght);
+        }
+
+		//
+		static void RandomFillingString(out string text, int countSentence)
+        {
+			text = "";
+			StreamReader temp = new StreamReader(path);
+			Random rnd = new Random();
+			int indexSentence = rnd.Next(1, countSentence);
+			Print($"{indexSentence}");
+			for (int i = 0; i < indexSentence; ++i)
+            {
+				text = temp.ReadLine();
+            }
+			temp.Close();
+        }
+
+		static bool IsLetter(char temp)
+		{
+			int numberChar = temp - '0' + 48;
+			bool isEn = (numberChar > 64 && numberChar < 91) || (numberChar > 96 && numberChar < 123);
+			bool isRus = (numberChar > 1039 && numberChar < 1072 || numberChar > 1071 && numberChar < 1104);
+			return (isEn || isRus);
+		}
+
+		//
+		static bool isEndSentence(char temp)
+		{
+			bool isPoint = temp == '.', isExclamationPoint = temp == '!', isAnswerPoint = temp == '?';
+			return (isPoint || isExclamationPoint || isAnswerPoint);
+		}
+
+
+		static bool isPunctuationMark(char temp)
+		{
+			bool isSpace = temp == ' ', isColon = temp == ':', isComma = temp == ',', isSemicolon = temp == ';';
+			return (isSpace || isColon || isComma || isSemicolon);
+		}
+
+		static bool isCorrectString(string temp)
+		{
+			bool isAllRight,
+				 isEndingRight = isEndSentence(temp[temp.Length - 1]),
+				 isStartingRight = IsLetter(temp[0]),
+				 isCorrectSymbol = true,
+				 isHaveTwiceMarks = false;
+			for (int i = 0; i < temp.Length && isCorrectSymbol; ++i)
+			{
+				if (!IsLetter(temp[i]) && !isEndSentence(temp[i]) && !isPunctuationMark(temp[i]))
+				{
+					isCorrectSymbol = false;
+				}
+			}
+			for (int i = 0; i < temp.Length - 1 && !isHaveTwiceMarks; ++i)
+			{
+				if ((isEndSentence(temp[i]) && isEndSentence(temp[i + 1])) || (isPunctuationMark(temp[i]) && isEndSentence(temp[i + 1])))
+				{
+					isHaveTwiceMarks = true;
+				}
+			}
+			//Print($"{isEndingRight} {isStartingRight} {isCorrectSymbol} {!isHaveTwiceMarks}");
+			isAllRight = isEndingRight && isStartingRight && isCorrectSymbol && !isHaveTwiceMarks;
+
+			return isAllRight;
+		}
+
+		static void ReverseWords(ref string text)
+        {
+			int startWordIndex = 0, endWordIndex = 0;
+			char[] textChar = new char[text.Length];
+			for (int i = 0; i < textChar.Length; ++i)
+            {
+				textChar[i] = text[i];
+            }
+			for (int i = 0; i < textChar.Length; ++i)
+            {
+				if (i != 0 && IsLetter(textChar[i]) && !IsLetter(textChar[i - 1])) {
+					startWordIndex = i;
+                }
+				if (IsLetter(textChar[i]))
+                {
+					//Print($"--- {i} ---");
+					endWordIndex = i;
+                }
+				if ((i != textChar.Length - 1 && (IsLetter(textChar[i]) && !IsLetter(textChar[i + 1]))) || (i == textChar.Length - 2 && IsLetter(textChar[i]) && IsLetter(textChar[i + 1])))
+                {
+					//Print($"{startWordIndex}, {endWordIndex}");
+					endWordIndex = i;
+					for (int j = 0; j <= (endWordIndex - startWordIndex) / 2; ++j)
+                    {
+						(textChar[startWordIndex + j], textChar[endWordIndex - j]) = (textChar[endWordIndex - j], textChar[startWordIndex + j]);
+						//Console.WriteLine(textChar);
+						//Print(textChar);
+                    }
+                }
+
+            }
+			text = new string(textChar);
+        }
+
+		static void SortingWords(ref string text)
+        {
+
+        }
+
+		// 
+		static void PrintString(string message)
+        {
+			Print(message);
+        }
+
+		
+
+		//
 		static void Print(string message)
 		{
 			Console.WriteLine(message);
 		}
+
 		static void Main(string[] args)
         {
+			string a;
+			UserFillingString(out a);
+			Print(a);
+			PrintString(a);
+			ReverseWords(ref a);
+			PrintString(a);
+			string b;
+			RandomFillingString(out b, 6);
+			PrintString(b);
+			ReverseWords(ref b);
+			PrintString(b);
 			double[][] stairsMas = new double[0][];
 			RandomFillingMas(ref stairsMas);
 			PrintMas(stairsMas);
