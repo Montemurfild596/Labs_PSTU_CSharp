@@ -2,6 +2,7 @@
   "version": 3,
   "targets": {
     "net6.0": {
+<<<<<<< HEAD
       "MyClassLibrary/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -10,12 +11,29 @@
         },
         "runtime": {
           "bin/placeholder/MyClassLibrary.dll": {}
+=======
+      "Lab 12/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "LabClassLibrary": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Lab 12.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Lab 12.dll": {}
+>>>>>>> 56cbd58 (Добавлена куча всего)
         }
       }
     }
   },
   "libraries": {
+<<<<<<< HEAD
     "MyClassLibrary/1.0.0": {
+=======
+    "Lab 12/1.0.0": {
+>>>>>>> 56cbd58 (Добавлена куча всего)
       "type": "project",
       "path": "../MyClassLibrary/MyClassLibrary.csproj",
       "msbuildProject": "../MyClassLibrary/MyClassLibrary.csproj"
@@ -23,7 +41,11 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+<<<<<<< HEAD
       "MyClassLibrary >= 1.0.0"
+=======
+      "Lab 12 >= 1.0.0"
+>>>>>>> 56cbd58 (Добавлена куча всего)
     ]
   },
   "packageFolders": {
@@ -87,5 +109,20 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
+<<<<<<< HEAD
   }
+=======
+  },
+  "logs": [
+    {
+      "code": "NU1108",
+      "level": "Error",
+      "message": "Обнаружен цикл. \r\n  LabClassLibrary -> Lab 12 -> LabClassLibrary.",
+      "libraryId": "LabClassLibrary",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
+>>>>>>> 56cbd58 (Добавлена куча всего)
 }

@@ -1,8 +1,26 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "umuuZwvrl3aaDMj/epLD+ofe1BCYk8zA+3fdW+95axhbwh7u1RU136G6vtHDgixVGqDC5ceVa0wvT+UyavYlvQ==",
   "success": true,
   "projectFilePath": "C:\\Projects\\CSharp\\CSharp\\LabClassLibrary\\LabClassLibrary.csproj",
   "expectedPackageFiles": [],
   "logs": []
+=======
+  "dgSpecHash": "rjtk/NPPm/WGa15jUzQKcQZ5JIlr19e7sYRNpzOhOTrCaWV9PLkpiGymTPGDttwc1wJD4AZDQWgzct3RCSBPqw==",
+  "success": false,
+  "projectFilePath": "C:\\Projects\\CSharp\\CSharp\\LabClassLibrary\\LabClassLibrary.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1108",
+      "level": "Error",
+      "message": "Обнаружен цикл. \r\n  LabClassLibrary -> Lab 12 -> LabClassLibrary.",
+      "libraryId": "LabClassLibrary",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
+>>>>>>> 56cbd58 (Добавлена куча всего)
 }

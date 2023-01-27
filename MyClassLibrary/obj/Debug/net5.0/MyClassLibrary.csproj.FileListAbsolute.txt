@@ -10,3 +10,15 @@ C:\Projects\CSahrp\CSharp\MyClassLibrary\obj\Debug\net5.0\MyClassLibrary.dll
 C:\Projects\CSahrp\CSharp\MyClassLibrary\obj\Debug\net5.0\ref\MyClassLibrary.dll
 C:\Projects\CSahrp\CSharp\MyClassLibrary\obj\Debug\net5.0\MyClassLibrary.pdb
 C:\Projects\CSahrp\CSharp\MyClassLibrary\obj\Debug\net5.0\MyClassLibrary.csproj.AssemblyReference.cache
+C:\Projects\CSharp\CSharp\MyClassLibrary\bin\Debug\net5.0\MyClassLibrary.deps.json
+C:\Projects\CSharp\CSharp\MyClassLibrary\bin\Debug\net5.0\MyClassLibrary.dll
+C:\Projects\CSharp\CSharp\MyClassLibrary\bin\Debug\net5.0\MyClassLibrary.pdb
+C:\Projects\CSharp\CSharp\MyClassLibrary\obj\Debug\net5.0\MyClassLibrary.csproj.AssemblyReference.cache
+C:\Projects\CSharp\CSharp\MyClassLibrary\obj\Debug\net5.0\MyClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\CSharp\CSharp\MyClassLibrary\obj\Debug\net5.0\MyClassLibrary.AssemblyInfoInputs.cache
+C:\Projects\CSharp\CSharp\MyClassLibrary\obj\Debug\net5.0\MyClassLibrary.AssemblyInfo.cs
+C:\Projects\CSharp\CSharp\MyClassLibrary\obj\Debug\net5.0\MyClassLibrary.csproj.CoreCompileInputs.cache
+C:\Projects\CSharp\CSharp\MyClassLibrary\obj\Debug\net5.0\MyClassLibrary.dll
+C:\Projects\CSharp\CSharp\MyClassLibrary\obj\Debug\net5.0\ref\MyClassLibrary.dll
+C:\Projects\CSharp\CSharp\MyClassLibrary\obj\Debug\net5.0\MyClassLibrary.pdb
+C:\Projects\CSharp\CSharp\MyClassLibrary\obj\Debug\net5.0\refint\MyClassLibrary.dll

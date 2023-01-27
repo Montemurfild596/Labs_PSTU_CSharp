@@ -67,26 +67,47 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Projects\\CSharp\\CSharp\\MyClassLibrary\\MyClassLibrary.csproj",
+<<<<<<< HEAD
         "projectName": "MyClassLibrary",
         "projectPath": "C:\\Projects\\CSharp\\CSharp\\MyClassLibrary\\MyClassLibrary.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
         "outputPath": "C:\\Projects\\CSharp\\CSharp\\MyClassLibrary\\obj\\",
+=======
+        "projectName": "Lab 12",
+        "projectPath": "C:\\Projects\\CSharp\\CSharp\\MyClassLibrary\\MyClassLibrary.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\CSharp\\CSharp\\Lab 12\\obj\\",
+>>>>>>> 56cbd58 (Добавлена куча всего)
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
+<<<<<<< HEAD
           "net5.0"
+=======
+          "net6.0"
+>>>>>>> 56cbd58 (Добавлена куча всего)
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
+<<<<<<< HEAD
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {}
+=======
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Projects\\CSharp\\CSharp\\LabClassLibrary\\LabClassLibrary.csproj": {
+                "projectPath": "C:\\Projects\\CSharp\\CSharp\\LabClassLibrary\\LabClassLibrary.csproj"
+              }
+            }
+>>>>>>> 56cbd58 (Добавлена куча всего)
           }
         },
         "warningProperties": {
@@ -96,8 +117,13 @@
         }
       },
       "frameworks": {
+<<<<<<< HEAD
         "net5.0": {
           "targetAlias": "net5.0",
+=======
+        "net6.0": {
+          "targetAlias": "net6.0",
+>>>>>>> 56cbd58 (Добавлена куча всего)
           "imports": [
             "net461",
             "net462",
