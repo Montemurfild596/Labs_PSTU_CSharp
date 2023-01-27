@@ -19,6 +19,7 @@ C:\Projects\CSharp\CSharp\basa\bin\Debug\net5.0\basa.deps.json
 C:\Projects\CSharp\CSharp\basa\bin\Debug\net5.0\basa.runtimeconfig.json
 C:\Projects\CSharp\CSharp\basa\bin\Debug\net5.0\basa.runtimeconfig.dev.json
 C:\Projects\CSharp\CSharp\basa\bin\Debug\net5.0\basa.dll
+C:\Projects\CSharp\CSharp\basa\bin\Debug\net5.0\ref\basa.dll
 C:\Projects\CSharp\CSharp\basa\bin\Debug\net5.0\basa.pdb
 C:\Projects\CSharp\CSharp\basa\obj\Debug\net5.0\basa.csproj.AssemblyReference.cache
 C:\Projects\CSharp\CSharp\basa\obj\Debug\net5.0\basa.GeneratedMSBuildEditorConfig.editorconfig
@@ -29,4 +30,3 @@ C:\Projects\CSharp\CSharp\basa\obj\Debug\net5.0\basa.dll
 C:\Projects\CSharp\CSharp\basa\obj\Debug\net5.0\ref\basa.dll
 C:\Projects\CSharp\CSharp\basa\obj\Debug\net5.0\basa.pdb
 C:\Projects\CSharp\CSharp\basa\obj\Debug\net5.0\basa.genruntimeconfig.cache
-C:\Projects\CSharp\CSharp\basa\obj\Debug\net5.0\refint\basa.dll

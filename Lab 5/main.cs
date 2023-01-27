@@ -8,12 +8,7 @@ namespace Lab_5
 		static int MIN = int.MinValue;
 		static int MAX = int.MaxValue;
 
-		/// <summary>
-		/// функция ввода границ диапазона
-		/// </summary>
-		/// <param name="a">Левая граница</param>
-		/// <param name="b">Правая граница</param>
-		/// <param name="message">Сообщение</param>
+		// функция ввода границ диапазона
 		static void InputBoundaries(out int a, out int b, string message)
 		{
 			string buf;
@@ -124,15 +119,12 @@ namespace Lab_5
 			}
 		}
 
-		#endregion
+        #endregion
 
-		#region Функции заполнения массива пользовательским вводом
+        #region Функции заполнения массива пользовательским вводом
 
-		/// <summary>
-		/// Функция заполнения одномерного массива значениями пользователя
-		/// </summary>
-		/// <param name="mas"></param>
-		static void UserFillingMas(ref int[] mas)
+        // функция заполнения одномерного массива значениями пользователя
+        static void UserFillingMas(ref int[] mas)
 		{
 			int masLength;
 			masLength = Input.TypePositiveInteger("Введите положительное значение размера массива: ");
@@ -143,10 +135,7 @@ namespace Lab_5
 			}
 		}
 
-		/// <summary>
-		/// Функция заполнения двумерного массива значениями пользователя
-		/// </summary>
-		/// <param name="mas"></param>
+		// функция заполнения двумерного массива значениями пользователя
 		static void UserFillingMas(ref int[,] mas)
 		{
 			int newCountRows, newCountCols;
@@ -162,10 +151,7 @@ namespace Lab_5
 			}
 		}
 
-		/// <summary>
-		/// Функция заполнения рваного массива значениями пользователя
-		/// </summary>
-		/// <param name="mas"></param>
+		// функция заполнения рваного массива значениями пользователя
 		static void UserFillingMas(ref int[][] mas)
 		{
 			int newCountRows, newCountElems;
@@ -657,8 +643,18 @@ namespace Lab_5
 					newMas[i][j] = mas[i - 1][j];
                 }
             }
-
-			mas = newMas;
+			mas = new int[rows][];
+			for (int i = 0; i < rows; ++i)
+            {
+				mas[i] = new int[newMas[i].Length];
+            }
+			for (int i = 0; i < rows; ++i)
+            {
+				for (int j = 0; j < mas[i].Length; ++j)
+                {
+					mas[i][j] = newMas[i][j];
+                }
+            }
 
         }
 
