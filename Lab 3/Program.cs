@@ -6,7 +6,7 @@ namespace Lab_3
 	{
 		static void Main(string[] args)
 		{
-			double diapazonBegin = -2, diapazonEnd = -0.4;
+			double diapazonBegin = -2, diapazonEnd = -0.1;
 			int k = 10;
 			for (double x = diapazonBegin; x <= diapazonEnd; x += (diapazonEnd - diapazonBegin) / k)
 			{

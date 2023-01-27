@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "w+6eBLJU5Fbouy27FsKy3wW1CChKDbV8yKDjBvAynzBREvnLl/KbKk0eNfzfrCOTcJR2d4jjd06ll0ItPQxQDw==",
+  "dgSpecHash": "B/eIQglv/VI2F/8uzmkBjgywmag//Sna1Od3foJKKERnrQaOIbMYPvVlhmdbDfIpBkB+X06Gzgt0wxT+ilyhsA==",
   "success": true,
   "projectFilePath": "C:\\Projects\\CSharp\\CSharp\\Lab 1.1\\Lab 1.1.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
+  ],
   "logs": []
 }

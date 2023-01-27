@@ -8,7 +8,7 @@ namespace MyClassLibrary
 		{
 			string buf;
 			int result;
-			bool isCorrectInput = false;
+			bool isCorrectInput = false, isBig = false, isSmall = false;
 			do
 			{
 				Console.Write(message);
@@ -18,14 +18,29 @@ namespace MyClassLibrary
 				{
 					Console.WriteLine("Ошибка: введённое значение не соответствует типу integer");
 				}
-			} while (!isCorrectInput);
+                else if (result >= 2000000)
+                {
+                    isBig = true;
+                    Console.WriteLine("Ошибка: введённое значение слишком большое");
+                }
+                else if (result <= -200000)
+                {
+                    isSmall = true;
+                    Console.WriteLine("Ошибка: введённое значение слишком маленькое");
+                }
+				else
+				{
+					isBig = false;
+					isSmall = false;
+				}
+            } while (!isCorrectInput || isBig || isSmall);
 			return result;
 		}
 		public static int TypePositiveInteger(string message)
         {
 			string buf;
 			int result;
-			bool isCorrectInput = false, isPositive = true;
+			bool isCorrectInput = false, isPositive = true, isBig = false, isSmall = false;
 			do
 			{
 				Console.Write(message);
@@ -35,18 +50,48 @@ namespace MyClassLibrary
 				{
 					Console.WriteLine("Ошибка: введённое значение не соответствует типу integer");
 				}
+				else if (result >= 2000000)
+				{
+					isBig = true;
+					Console.WriteLine("Ошибка: введённое значение слишком большое");
+				}
+				else if (result <= -200000)
+				{
+					isSmall = true;
+                    Console.WriteLine("Ошибка: введённое значение слишком маленькое");
+                }
 				else
 				{
 					isPositive = result > 0;
+					isBig = false; isSmall = false;
 					if (!isPositive)
 					{
 						Console.WriteLine("Ошибка: введённое значение не положительное");
 					}
 				}
-			} while (!isCorrectInput || !isPositive);
+			} while (!isCorrectInput || !isPositive || isBig || isSmall);
 			return result;
         }
+
 		public static double TypeDouble(string message)
+		{
+			string buf;
+			double result;
+			bool isCorrectInput = false;
+			do
+			{
+				Console.Write(message);
+				buf = Console.ReadLine();
+				isCorrectInput = Double.TryParse(buf, out result);
+				if (!isCorrectInput)
+				{
+					Console.WriteLine("Ошибка: введённое значение не соответствует типу double");
+				}
+			} while (!isCorrectInput);
+			return result;
+		}
+
+		public static double TypeDoubleArc(string message)
 		{
 			string buf;
 			double result;
@@ -86,6 +131,40 @@ namespace MyClassLibrary
 			} while (!isCorrect);
 			return result;
 		}
+
+		public static int TypeIntBetween(int a, int b, string message)
+		{
+            string buf;
+            int result;
+            bool isCorrectInput = false, isBig = false, isSmall = false;
+            do
+            {
+                Console.Write(message);
+                buf = Console.ReadLine();
+                isCorrectInput = Int32.TryParse(buf, out result);
+                if (!isCorrectInput)
+                {
+                    Console.WriteLine("Ошибка: введённое значение не соответствует типу integer");
+                }
+                else if (result > b)
+                {
+                    isBig = true;
+                    Console.WriteLine("Ошибка: введённое значение слишком большое");
+                }
+                else if (result < a)
+                {
+                    isSmall = true;
+                    Console.WriteLine("Ошибка: введённое значение слишком маленькое");
+                }
+                else
+                {
+                    isBig = false;
+                    isSmall = false;
+                }
+            } while (!isCorrectInput || isBig || isSmall);
+            return result;
+        }
+
 		public static T ChoiceOfTwoValues<T>(T first, T second, string message)
 		{
 			string buf;

@@ -22,7 +22,6 @@ C:\Projects\CSharp\CSharp\Lab 6\bin\Debug\net5.0\Lab 6.deps.json
 C:\Projects\CSharp\CSharp\Lab 6\bin\Debug\net5.0\Lab 6.runtimeconfig.json
 C:\Projects\CSharp\CSharp\Lab 6\bin\Debug\net5.0\Lab 6.runtimeconfig.dev.json
 C:\Projects\CSharp\CSharp\Lab 6\bin\Debug\net5.0\Lab 6.dll
-C:\Projects\CSharp\CSharp\Lab 6\bin\Debug\net5.0\ref\Lab 6.dll
 C:\Projects\CSharp\CSharp\Lab 6\bin\Debug\net5.0\Lab 6.pdb
 C:\Projects\CSharp\CSharp\Lab 6\bin\Debug\net5.0\MyClassLibrary.dll
 C:\Projects\CSharp\CSharp\Lab 6\bin\Debug\net5.0\MyClassLibrary.pdb
@@ -36,3 +35,4 @@ C:\Projects\CSharp\CSharp\Lab 6\obj\Debug\net5.0\Lab 6.dll
 C:\Projects\CSharp\CSharp\Lab 6\obj\Debug\net5.0\ref\Lab 6.dll
 C:\Projects\CSharp\CSharp\Lab 6\obj\Debug\net5.0\Lab 6.pdb
 C:\Projects\CSharp\CSharp\Lab 6\obj\Debug\net5.0\Lab 6.genruntimeconfig.cache
+C:\Projects\CSharp\CSharp\Lab 6\obj\Debug\net5.0\refint\Lab 6.dll

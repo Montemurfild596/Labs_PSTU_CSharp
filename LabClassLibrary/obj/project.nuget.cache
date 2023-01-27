@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "rjtk/NPPm/WGa15jUzQKcQZ5JIlr19e7sYRNpzOhOTrCaWV9PLkpiGymTPGDttwc1wJD4AZDQWgzct3RCSBPqw==",
+  "success": false,
+  "projectFilePath": "C:\\Projects\\CSharp\\CSharp\\LabClassLibrary\\LabClassLibrary.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1108",
+      "level": "Error",
+      "message": "Обнаружен цикл. \r\n  LabClassLibrary -> Lab 12 -> LabClassLibrary.",
+      "libraryId": "LabClassLibrary",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
+}
